@@ -30,9 +30,10 @@ export default {
   justify-content: center;
   margin: 10px;
 
-  font-family: Ebrima;
+  font-family: var(--font-main);
   font-size: 4rem;
   z-index: 2;
+  color: var(--font-color-main);
   width: 100%;
   height: 100%;
   user-select: none;

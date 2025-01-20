@@ -1,17 +1,26 @@
 <script setup>
 import TextButton from "@/components/TextButton.vue";
 import ProfileWidget from "@/components/ProfileWidget.vue";
+import ChatMessages from "/tests/mock-data/ChatMessages.json"
+import ChatBox from "@/components/ChatBox.vue";
 </script>
 
 <template>
   <main>
     <div class="side-screen">
-      <ProfileWidget/>
+      <ProfileWidget
+        :username="ChatMessages['users'][0].username"
+        :borderColor="ChatMessages['users'][0]['border-color']"
+      />
+      <ChatBox :messages="ChatMessages" chatHeight="350px"/>
       <TextButton class="big-button" text="Shop" :action="() => {console.log('shop-button')}"/>
       <TextButton class="big-button" text="Create" :action="() => {console.log('create-button')}"/>
     </div>
     <hr>
-    <div class="middle-screen"></div>
+    <div class="middle-screen">
+      <ChatBox :messages="ChatMessages" chatHeight="400px"/>
+
+    </div>
     <hr>
     <div class="side-screen">
       <TextButton class="big-button" text="Maps" :action="() => {console.log('Maps-button')}"/>
@@ -37,6 +46,10 @@ main {
   background: antiquewhite;
 }
 .middle-screen {
+  display: flex;
+  justify-content: end;
+
+  flex-direction: column;
   flex: 2;
   background: cadetblue;
 }

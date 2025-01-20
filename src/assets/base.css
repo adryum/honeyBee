@@ -1,0 +1,25 @@
+:root {
+    --outer-border: 16px;
+    --inner-border: 12px;
+    --background-color: 40;
+    --font-main: Ebrima;
+}
+
+:root {
+    --font-color-main: #ffd7b1;
+    --dark-color-background: rgba(40,40,40);
+    --lighter-dark-color: rgba(50,50,50, 1);
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+html {
+    background: var(--dark-color-background);
+}
