@@ -11,7 +11,18 @@
     --lighter-dark-color: rgba(50,50,50, 1);
 }
 
+.hr-vertical {
+    width: 2px;
+    background: transparent;
+    border: none;
+}
 
+.hr-horizontal {
+    margin: 0;
+    height: 2px;
+    border: none;
+    background: white;
+}
 
 body {
     margin: 0;

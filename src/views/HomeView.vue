@@ -2,7 +2,9 @@
 import TextButton from "@/components/TextButton.vue";
 import ProfileWidget from "@/components/ProfileWidget.vue";
 import ChatMessages from "/tests/mock-data/ChatMessages.json"
+import LeaderBoardData from "/tests/mock-data/LeaderBoardData.json"
 import ChatBox from "@/components/ChatBox.vue";
+import LeaderBoard from "@/components/LeaderBoard.vue";
 </script>
 
 <template>
@@ -16,13 +18,14 @@ import ChatBox from "@/components/ChatBox.vue";
       <TextButton class="big-button" text="Shop" :action="() => {console.log('shop-button')}"/>
       <TextButton class="big-button" text="Create" :action="() => {console.log('create-button')}"/>
     </div>
-    <hr>
+    <hr class="hr-vertical">
     <div class="middle-screen">
       <ChatBox :messages="ChatMessages" chatHeight="400px"/>
 
     </div>
-    <hr>
+    <hr class="hr-vertical">
     <div class="side-screen">
+      <LeaderBoard :gameStats="LeaderBoardData"/>
       <TextButton class="big-button" text="Maps" :action="() => {console.log('Maps-button')}"/>
       <TextButton class="big-button" text="Game mode" :action="() => {console.log('Game mode-button')}"/>
       <TextButton class="big-button" text="Play" :action="() => {console.log('play-button')}"/>
@@ -31,11 +34,7 @@ import ChatBox from "@/components/ChatBox.vue";
 </template>
 
 <style scoped>
-hr {
-  width: 2px;
-  background: transparent;
-  border: none;
-}
+
 main {
   display: flex;
   flex-direction: row;

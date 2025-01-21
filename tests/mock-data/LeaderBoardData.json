@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "icon": "sumthig",
+      "border-color": "#a818b5",
+      "username": "Bigus Chungus",
+      "score": "99999999"
+    },
+    {
+      "icon": "sumthig",
+      "border-color": "#423dd9",
+      "username": "tripple w",
+      "score": "1"
+    },
+    {
+      "icon": "sumthig",
+      "border-color": "#2993a6",
+      "username": "7 digestions",
+      "score": "123"
+    },
+    {
+      "icon": "sumthig",
+      "border-color": "#50a166",
+      "username": "The danger",
+      "score": "23424566"
+    },
+    {
+      "icon": "sumthig",
+      "border-color": "#d65222",
+      "username": "Burrito man",
+      "score": "2364443"
+    },
+    {
+      "icon": "sumthig",
+      "border-color": "#dea054",
+      "username": "Jānis Gaming",
+      "score": "234563"
+    }
+  ]
+}

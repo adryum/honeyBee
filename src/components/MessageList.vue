@@ -3,33 +3,24 @@ import UserMessage from "@/components/UserMessage.vue";
 
 export default {
   components: {UserMessage},
-  props: ['gameStats']
+  props: ['messages', 'chatHeight']
 }
 </script>
 
 <template>
-<div class="wrapper">
-  <div><strong>LeaderBoard</strong></div>
-  <hr class="hr-horizontal">
-  <div class="podium">
-
-  </div>
-  <div class="others">
-    <UserMessage v-for="(user, index) in gameStats['users']" :key="index"
+  <div class="chat">
+    <UserMessage v-for="(user, index) in messages['users']" :key="index"
                  :border_color="user['border-color']"
                  :username="user.username"
                  :message="user.message"
     />
   </div>
-</div>
 </template>
 
 <style scoped>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.podium {
+.chat {
   flex: 1;
+  height: v-bind(chatHeight);
+  overflow-y: scroll;
 }
 </style>

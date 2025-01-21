@@ -1,8 +1,8 @@
 <script>
-import UserMessage from "@/components/UserMessage.vue"
+import MessageList from "@/components/MessageList.vue";
 
 export default {
-  components: {UserMessage},
+  components: {MessageList},
   props: ['messages', 'chatHeight']
 
 }
@@ -11,14 +11,8 @@ export default {
 <template>
 <div class="wrappers">
   <div class="title"><strong>Chat</strong></div>
-  <hr>
-  <div class="chat">
-    <UserMessage v-for="(user, index) in messages['users']" :key="index"
-                 :border_color="user['border-color']"
-                 :username="user.username"
-                 :message="user.message"
-    />
-  </div>
+  <hr class="hr-horizontal">
+  <MessageList :messages="messages" :chatHeight="chatHeight"/>
   <div class="input">
     <input type="text" placeholder="type...">
   </div>
@@ -28,6 +22,9 @@ export default {
 
 <style scoped>
 .wrappers {
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
   border: 5px solid var(--lighter-dark-color);
 }
 .title {
@@ -40,16 +37,7 @@ export default {
   padding: 8px;
   background: var(--dark-color-background);
 }
-hr {
-  margin: 0;
-  height: 2px;
-  border: none;
-  background: white;
-}
-.chat {
-  height: v-bind(chatHeight);
-  overflow-y: scroll;
-}
+
 .input {
   display: flex;
   height: 50px;
