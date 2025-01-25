@@ -3,13 +3,13 @@ import UserMessage from "@/components/UserMessage.vue";
 
 export default {
   components: {UserMessage},
-  props: ['messages', 'chatHeight']
+  props: ['messages', 'chatHeight'],
 }
 </script>
 
 <template>
   <div class="chat">
-    <UserMessage v-for="(user, index) in messages['users']" :key="index"
+    <UserMessage v-for="(user, index) in messages" :key="index"
                  :border_color="user['border-color']"
                  :username="user.username"
                  :message="user.message"

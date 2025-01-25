@@ -11,6 +11,17 @@
     --lighter-dark-color: rgba(50,50,50, 1);
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-main);
+    color: var(--font-color-main);
+    font-size: 48px;
+    height: 50px;
+    padding: 8px;
+    background: var(--dark-color-background);
+}
+
 .hr-vertical {
     width: 2px;
     background: transparent;

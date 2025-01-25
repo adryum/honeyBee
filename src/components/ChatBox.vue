@@ -1,7 +1,9 @@
 <script>
 import MessageList from "@/components/MessageList.vue";
+import {JsonToArr} from "@/main.js";
 
 export default {
+  methods: {JsonToArr},
   components: {MessageList},
   props: ['messages', 'chatHeight']
 
@@ -12,7 +14,7 @@ export default {
 <div class="wrappers">
   <div class="title"><strong>Chat</strong></div>
   <hr class="hr-horizontal">
-  <MessageList :messages="messages" :chatHeight="chatHeight"/>
+  <MessageList :messages="JsonToArr(messages, 'users')" :chatHeight="chatHeight"/>
   <div class="input">
     <input type="text" placeholder="type...">
   </div>
@@ -26,16 +28,6 @@ export default {
   display: flex;
   flex-direction: column;
   border: 5px solid var(--lighter-dark-color);
-}
-.title {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-main);
-  color: var(--font-color-main);
-  font-size: 48px;
-  height: 50px;
-  padding: 8px;
-  background: var(--dark-color-background);
 }
 
 .input {
