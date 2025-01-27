@@ -16,9 +16,9 @@ export default {
     },
     removeHighestScoresFromTop(arr, amount) {
       arr = this.sortStatsByScoreASC(arr)
-      arr = arr.splice(0,amount)
-      arr = this.sortStatsByScoreDESC(arr)
-      return arr
+      let newArr = arr.splice(0,amount)
+      newArr = this.sortStatsByScoreDESC(newArr)
+      return newArr
     }
   }
 }
@@ -28,7 +28,7 @@ export default {
 <div class="wrapper">
   <div class="title"><strong>LeaderBoard</strong></div>
   <hr class="hr-horizontal">
-  <Podium username1="the1" username2="the2" username3="the3"/>
+  <Podium :gameScore="sortStatsByScoreASC(JsonToArr(gameStats, 'users'))"/>
   <hr class="separator">
   <div class="others">
     <MessageList :messages="removeHighestScoresFromTop(JsonToArr(gameStats, 'users'), 3)" chat-height="200px"/>

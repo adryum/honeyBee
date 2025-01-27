@@ -9,7 +9,7 @@ export default {
       return PodiumPlace
     }
   },
-  props: ['place', 'pathToIcon', 'borderWidth', 'borderColor', 'userName']
+  props: ['place', 'pathToIcon', 'borderWidth', 'borderColor', 'userName', 'userScore']
 }
 </script>
 
@@ -19,16 +19,24 @@ export default {
   <h1 class="username">{{ userName }}</h1>
   <ProfileIcon :pathToIcon="pathToIcon" :borderColor="borderColor" :borderWidth="borderWidth" iconWidth="50%"/>
 <!--  Pillar-->
-  <div v-if="place === PodiumPlace.First" class="first"></div>
-  <div v-else-if="place === PodiumPlace.Second" class="second"></div>
-  <div v-else-if="place === PodiumPlace.Third" class="third"></div>
+  <div v-if="place === PodiumPlace.First" class="first pillar">{{userScore}}</div>
+  <div v-else-if="place === PodiumPlace.Second" class="second pillar">{{userScore}}</div>
+  <div v-else-if="place === PodiumPlace.Third" class="third pillar">{{userScore}}</div>
 </div>
 </template>
 
 <style scoped>
+.pillar {
+  box-sizing: border-box;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+
+}
 .username {
   margin: 0;
-
+  text-align: center;
 }
 .column {
   margin-top: auto;
