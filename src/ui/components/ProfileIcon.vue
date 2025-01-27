@@ -1,7 +1,11 @@
-<script>
-export default {
-  props: ['pathToIcon', 'borderColor', 'borderWidth', 'iconWidth']
-}
+<script setup>
+
+defineProps({
+  iconWidth: String,
+  pathToIcon: String,
+  borderWidth: String,
+  borderColor: String,
+})
 </script>
 
 <template>

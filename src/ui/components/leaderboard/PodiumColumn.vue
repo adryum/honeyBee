@@ -1,22 +1,21 @@
-<script>
+<script setup>
 import {PodiumPlace} from "@/main.js";
-import ProfileIcon from "@/components/ProfileIcon.vue";
+import ProfileIcon from "@/ui/components/ProfileIcon.vue";
 
-export default {
-  components: {ProfileIcon},
-  computed: {
-    PodiumPlace() {
-      return PodiumPlace
-    }
-  },
-  props: ['place', 'pathToIcon', 'borderWidth', 'borderColor', 'userName', 'userScore']
-}
+defineProps({
+  place: Number,
+  pathToIcon: String,
+  borderWidth: String,
+  borderColor: String,
+  username: String,
+  userScore: Number
+})
 </script>
 
 <template>
 <div class="column">
 <!--  User on top-->
-  <h1 class="username">{{ userName }}</h1>
+  <h1 class="username">{{ username }}</h1>
   <ProfileIcon :pathToIcon="pathToIcon" :borderColor="borderColor" :borderWidth="borderWidth" iconWidth="50%"/>
 <!--  Pillar-->
   <div v-if="place === PodiumPlace.First" class="first pillar">{{userScore}}</div>
@@ -44,6 +43,7 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 .first {
   width: 75%;

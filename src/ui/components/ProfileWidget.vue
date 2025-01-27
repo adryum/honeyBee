@@ -1,13 +1,17 @@
-<script>
-export default {
-  props: ['icon', 'borderColor', 'username']
-}
+<script setup>
+import ProfileIcon from "@/ui/components/ProfileIcon.vue";
+
+defineProps({
+  pathToIcon: String,
+  username: String,
+  borderColor: String,
+})
 </script>
 
 <template>
   <div class="wrapper">
     <div class="upper-part">
-      <img alt="profile picture" src="">
+      <profile-icon :borderColor="borderColor" :pathToIcon="pathToIcon" border-width="5px"/>
       <div class="name"><h1>{{ username }}</h1></div>
     </div>
     <div class="experience"></div>
@@ -18,12 +22,12 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+
   height: 150px;
   background: var(--lighter-dark-color);
 }
 .upper-part {
-  margin: 6px;
+  margin-bottom: 6px;
 
   display: flex;
   flex: 2;
@@ -49,8 +53,7 @@ img {
 }
 .experience {
   flex: 1;
-  margin: 6px;
-
+  align-self: center;
   width: calc(100% - 12px);
   background: #789197;
 }

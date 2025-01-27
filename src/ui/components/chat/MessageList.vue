@@ -1,18 +1,19 @@
-<script>
-import UserMessage from "@/components/UserMessage.vue";
+<script setup>
+import UserMessage from "@/ui/components/chat/UserMessage.vue";
 
-export default {
-  components: {UserMessage},
-  props: ['messages', 'chatHeight'],
-}
+defineProps({
+  messages: Array,
+  chatHeight: String
+})
 </script>
 
 <template>
   <div class="chat">
     <UserMessage v-for="(user, index) in messages" :key="index"
-                 :border_color="user['border-color']"
+                 :borderColor="user.borderColor"
                  :username="user.username"
                  :message="user.message"
+                 :pathToIcon="user.icon"
     />
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
 <style scoped>
 .chat {
   flex: 1;
-  height: v-bind(chatHeight);
+  max-height: v-bind(chatHeight);
   overflow-y: scroll;
 }
 </style>

@@ -1,20 +1,21 @@
 <script setup>
-import TextButton from "@/components/TextButton.vue";
-import ProfileWidget from "@/components/ProfileWidget.vue";
+import TextButton from "@/ui/components/buttons/TextButton.vue";
+import ProfileWidget from "@/ui/components/ProfileWidget.vue";
 import ChatMessages from "/tests/mock-data/ChatMessages.json"
 import LeaderBoardData from "/tests/mock-data/LeaderBoardData.json"
-import ChatBox from "@/components/ChatBox.vue";
-import LeaderBoard from "@/components/LeaderBoard.vue";
+import ChatBox from "@/ui/components/chat/ChatBox.vue";
+import LeaderBoard from "@/ui/components/leaderboard/LeaderBoard.vue";
+import {JsonToArr} from "@/main.js";
 </script>
 
 <template>
   <main>
     <div class="side-screen">
-      <ProfileWidget
+      <ProfileWidget class="pop-out-centered-shadow cut-rounded-border"
         :username="ChatMessages['users'][0].username"
-        :borderColor="ChatMessages['users'][0]['border-color']"
+        :borderColor="ChatMessages['users'][0]['borderColor']"
       />
-      <ChatBox :messages="ChatMessages" chatHeight="350px"/>
+      <ChatBox class="pop-out-centered-shadow cut-rounded-border" :messages="ChatMessages" chatHeight="450px"/>
       <TextButton class="big-button" text="Shop" :action="() => {console.log('shop-button')}"/>
       <TextButton class="big-button" text="Create" :action="() => {console.log('create-button')}"/>
     </div>
@@ -25,7 +26,7 @@ import LeaderBoard from "@/components/LeaderBoard.vue";
     </div>
     <hr class="hr-vertical">
     <div class="side-screen">
-      <LeaderBoard :gameStats="LeaderBoardData"/>
+      <LeaderBoard class="pop-out-centered-shadow cut-rounded-border" :gameStats="JsonToArr(LeaderBoardData, 'users')"/>
       <TextButton class="big-button" text="Maps" :action="() => {console.log('Maps-button')}"/>
       <TextButton class="big-button" text="Game mode" :action="() => {console.log('Game mode-button')}"/>
       <TextButton class="big-button" text="Play" :action="() => {console.log('play-button')}"/>
@@ -34,15 +35,21 @@ import LeaderBoard from "@/components/LeaderBoard.vue";
 </template>
 
 <style scoped>
-
+.side-screen > * {
+  box-sizing: border-box;
+  margin: 8px;
+}
 main {
   display: flex;
   flex-direction: row;
   height: 100vh;
 }
 .side-screen {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   flex: 1;
-  background: antiquewhite;
+  background: var(--lighter-dark-color);
 }
 .middle-screen {
   display: flex;

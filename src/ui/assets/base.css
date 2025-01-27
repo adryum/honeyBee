@@ -3,12 +3,23 @@
     --inner-border: 12px;
     --background-color: 40;
     --font-main: Ebrima;
+    --widget-border-radius: 8px;
 }
 
 :root {
     --font-color-main: #ffd7b1;
     --dark-color-background: rgba(40,40,40);
     --lighter-dark-color: rgba(50,50,50, 1);
+}
+.pop-out-shadow {
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, .5);;
+}
+.pop-out-centered-shadow {
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, .5);;
+}
+.cut-rounded-border {
+    overflow: hidden;
+    border-radius: var(--widget-border-radius);
 }
 
 .title {
@@ -18,12 +29,10 @@
     color: var(--font-color-main);
     font-size: 48px;
     height: 50px;
-    padding: 8px;
-    background: var(--dark-color-background);
 }
 
 .hr-vertical {
-    width: 2px;
+    width: 4px;
     background: transparent;
     border: none;
 }

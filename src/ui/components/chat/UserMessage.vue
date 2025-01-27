@@ -1,7 +1,11 @@
-<script>
-export default {
-  props: ['icon', 'border_color', 'username', 'message']
-}
+<script setup>
+
+defineProps({
+  pathToIcon: String,
+  borderColor: String,
+  username: String,
+  message: String
+})
 </script>
 
 <template>
@@ -26,7 +30,7 @@ export default {
   aspect-ratio: 1/1;
   border-radius: 100%;
   background: #ffd7b1;
-  border: 5px solid v-bind(border_color);
+  border: 5px solid v-bind(borderColor);
 }
 .wrapper > p {
   margin: 0;
@@ -35,6 +39,6 @@ export default {
   align-self: center;
 }
 p:first-of-type {
-  color: v-bind(border_color);
+  color: v-bind(borderColor);
 }
 </style>
