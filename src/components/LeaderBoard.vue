@@ -1,9 +1,10 @@
 <script>
 import MessageList from "@/components/MessageList.vue";
 import {JsonToArr} from "@/main.js";
+import Podium from "@/components/Podium.vue";
 
 export default {
-  components: {MessageList},
+  components: {Podium, MessageList},
   props: ['gameStats'],
   methods: {
     JsonToArr,
@@ -27,11 +28,10 @@ export default {
 <div class="wrapper">
   <div class="title"><strong>LeaderBoard</strong></div>
   <hr class="hr-horizontal">
-  <div class="podium">
-
-  </div>
+  <Podium username1="the1" username2="the2" username3="the3"/>
+  <hr class="separator">
   <div class="others">
-    <MessageList :messages="removeHighestScoresFromTop(JsonToArr(gameStats, 'users'), 3)" chat-height="300px"/>
+    <MessageList :messages="removeHighestScoresFromTop(JsonToArr(gameStats, 'users'), 3)" chat-height="200px"/>
   </div>
 </div>
 </template>
@@ -40,8 +40,14 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
+  background: var(--dark-color-background);
+
 }
-.podium {
-  flex: 1;
+.separator {
+  margin: 0;
+  align-self: center;
+  height: 2px;
+  width: 70%;
+  background: white;
 }
 </style>
