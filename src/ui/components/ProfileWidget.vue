@@ -27,8 +27,7 @@ defineProps({
   background: var(--lighter-dark-color);
 }
 .upper-part {
-  margin-bottom: 6px;
-
+  margin: 6px;
   display: flex;
   flex: 2;
   gap: 10px;
@@ -36,9 +35,7 @@ defineProps({
 }
 img {
   border: 5px solid v-bind(borderColor);
-
   aspect-ratio: 1/1;
-
   border-radius: 100%;
   background: cadetblue;
 }
@@ -49,7 +46,6 @@ img {
   color: var(--font-color-main);
   font-size: clamp(1.5rem,2vw, 3.5rem);
   margin: 0;
-
 }
 .experience {
   flex: 1;

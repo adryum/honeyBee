@@ -4,6 +4,7 @@ import MessageList from "@/ui/components/chat/MessageList.vue";
 import Podium from "@/ui/components/leaderboard/Podium.vue";
 import DropdownToggleButton from "@/ui/components/buttons/DropdownToggleButton.vue";
 import {ref} from "vue";
+import {leaderboardDataArrayToUserMessageModelArray} from "@/core/models/UserMessageModel.js";
 
 defineProps({
   gameStats: Array
@@ -20,7 +21,7 @@ function sortStatsByScoreASC(userArray) {
   return arrayClone.sort((userA, userB) => {return userA.score - userB.score})
 }
 function removeHighestScoresFromTop(arr, amount) {
-  return sortStatsByScoreDESC(arr).splice(0, amount)
+  return sortStatsByScoreDESC(arr).splice(amount)
 }
 </script>
 
@@ -29,14 +30,12 @@ function removeHighestScoresFromTop(arr, amount) {
   <div class="title"><strong>LeaderBoard</strong></div>
   <hr class="hr-horizontal">
   <Podium :gameScore="sortStatsByScoreDESC(gameStats)"/>
-  <hr class="separator">
+  <hr class="hr-horizontal">
   <DropdownToggleButton title="Others"
                         :isOpen="isLeaderboardExpanded"
                         @isOpen="(bool) => {isLeaderboardExpanded = bool}"
   />
-  <div v-if="isLeaderboardExpanded" class="others">
-    <MessageList :messages="removeHighestScoresFromTop(gameStats,3)" chat-height="100px"/>
-  </div>
+  <MessageList v-if="isLeaderboardExpanded" :messages="leaderboardDataArrayToUserMessageModelArray(removeHighestScoresFromTop(gameStats,3))"/>
 </div>
 </template>
 

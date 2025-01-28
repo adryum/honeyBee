@@ -10,6 +10,7 @@
     --font-color-main: #ffd7b1;
     --dark-color-background: rgba(40,40,40);
     --lighter-dark-color: rgba(50,50,50, 1);
+    --background-dark-color: rgba(30,30,30, 1);
 }
 .pop-out-shadow {
     box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, .5);;
@@ -32,14 +33,16 @@
 }
 
 .hr-vertical {
-    width: 4px;
+    min-width: 4px;
+    max-width: 4px;
     background: transparent;
     border: none;
 }
 
 .hr-horizontal {
     margin: 0;
-    height: 2px;
+    min-height: 2px;
+    max-height: 2px;
     border: none;
     background: white;
 }

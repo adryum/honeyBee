@@ -1,16 +1,15 @@
 <script setup>
-
-import {UserMessageModel} from "@/core/models/UserMessageModel.js";
+import ProfileIcon from "@/ui/components/ProfileIcon.vue";
 
 defineProps({
-  UserMessageModel: UserMessageModel
+  UserMessageModel: Object
 })
 </script>
 
 <template>
 <div class="wrapper">
-  <img class="icon" alt="player-icon" src=""/>
-  <p>{{ UserMessageModel.username }}:</p>
+  <ProfileIcon border-width="5px" :borderColor="UserMessageModel.borderColor" :path-to-icon="UserMessageModel.pathToIcon"/>
+  <p :style="{color: UserMessageModel.borderColor}">{{ UserMessageModel.username }}:</p>
   <p>{{ UserMessageModel.message }}</p>
 </div>
 </template>
@@ -29,7 +28,6 @@ defineProps({
   aspect-ratio: 1/1;
   border-radius: 100%;
   background: #ffd7b1;
-  border: 5px solid v-bind(UserMessageModel[borderColor]);
 }
 .wrapper > p {
   margin: 0;
@@ -37,7 +35,5 @@ defineProps({
   color: white;
   align-self: center;
 }
-p:first-of-type {
-  color: v-bind(UserMessageModel[borderColor]);
-}
+
 </style>

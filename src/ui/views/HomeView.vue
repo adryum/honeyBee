@@ -6,6 +6,7 @@ import LeaderBoardData from "/tests/mock-data/LeaderBoardData.json"
 import ChatBox from "@/ui/components/chat/ChatBox.vue";
 import LeaderBoard from "@/ui/components/leaderboard/LeaderBoard.vue";
 import {JsonToArr} from "@/main.js";
+import UserLobbyCardContainer from "@/ui/components/lobby/UserLobbyCardContainer.vue";
 </script>
 
 <template>
@@ -15,14 +16,14 @@ import {JsonToArr} from "@/main.js";
         :username="ChatMessages['users'][0].username"
         :borderColor="ChatMessages['users'][0]['borderColor']"
       />
-      <ChatBox class="pop-out-centered-shadow cut-rounded-border" :messages="ChatMessages" chatHeight="450px"/>
+      <ChatBox class="pop-out-centered-shadow cut-rounded-border" :messages="ChatMessages"/>
       <TextButton class="big-button" text="Shop" :action="() => {console.log('shop-button')}"/>
       <TextButton class="big-button" text="Create" :action="() => {console.log('create-button')}"/>
     </div>
     <hr class="hr-vertical">
     <div class="middle-screen">
-      <ChatBox :messages="ChatMessages" chatHeight="400px"/>
-
+      <UserLobbyCardContainer class="user-lobby-container"/>
+      <ChatBox  :messages="ChatMessages" chatHeight="400px"/>
     </div>
     <hr class="hr-vertical">
     <div class="side-screen">
@@ -35,6 +36,10 @@ import {JsonToArr} from "@/main.js";
 </template>
 
 <style scoped>
+.user-lobby-container {
+  display: flex;
+  flex: 3;
+}
 .side-screen > * {
   box-sizing: border-box;
   margin: 8px;
@@ -57,7 +62,7 @@ main {
 
   flex-direction: column;
   flex: 2;
-  background: cadetblue;
+  background: var(--background-dark-color);
 }
 .big-button {
   margin: 10px;

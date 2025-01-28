@@ -1,13 +1,13 @@
 {
   "users": [
-    {"icon": "sumthig", "borderColor": "#a818b5", "username": "Bigus Chungus", "message": "I like em BIG!"},
-    {"icon": "sumthig", "borderColor": "#423dd9", "username": "tripple w",     "message": "Yoo guyss!!1"},
-    {"icon": "sumthig", "borderColor": "#2993a6", "username": "7 digestions",  "message": "HHIi www"},
-    {"icon": "sumthig", "borderColor": "#50a166", "username": "The danger",    "message": "what are we playing?"},
-    {"icon": "sumthig", "borderColor": "#d65222", "username": "Burrito man",   "message": "Tittle guesser?"},
-    {"icon": "sumthig", "borderColor": "#dea054", "username": "Jānis Gaming",  "message": "Yā, varam to !"},
-    {"icon": "sumthig", "borderColor": "#a818b5", "username": "Bigus Chungus", "message": "Yoo Readdy up guyz"},
-    {"icon": "sumthig", "borderColor": "#423dd9", "username": "tripple w",     "message": "fr"},
-    {"icon": "sumthig", "borderColor": "#2993a6", "username": "7 digestions",  "message": "Lesss GGOOOOOO!!!"}
+    {"icon": "https://randomuser.me/api/portraits/men/25.jpg", "borderColor": "#a818b5", "username": "Bigus Chungus", "message": "I like em BIG!"},
+    {"icon": "https://randomuser.me/api/portraits/men/59.jpg", "borderColor": "#423dd9", "username": "tripple w",     "message": "Yoo guyss!!1"},
+    {"icon": "https://randomuser.me/api/portraits/men/91.jpg", "borderColor": "#2993a6", "username": "7 digestions",  "message": "HHIi www"},
+    {"icon": "https://randomuser.me/api/portraits/men/65.jpg", "borderColor": "#50a166", "username": "The danger",    "message": "what are we playing?"},
+    {"icon": "https://randomuser.me/api/portraits/women/92.jpg", "borderColor": "#d65222", "username": "Burrito man",   "message": "Tittle guesser?"},
+    {"icon": "https://randomuser.me/api/portraits/women/93.jpg", "borderColor": "#dea054", "username": "Jānis Gaming",  "message": "Yā, varam to !"},
+    {"icon": "https://randomuser.me/api/portraits/men/25.jpg", "borderColor": "#a818b5", "username": "Bigus Chungus", "message": "Yoo Readdy up guyz"},
+    {"icon": "https://randomuser.me/api/portraits/men/59.jpg", "borderColor": "#423dd9", "username": "tripple w",     "message": "fr"},
+    {"icon": "https://randomuser.me/api/portraits/men/91.jpg", "borderColor": "#2993a6", "username": "7 digestions",  "message": "Lesss GGOOOOOO!!!"}
   ]
 }
