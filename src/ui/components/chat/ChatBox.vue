@@ -2,6 +2,7 @@
 import MessageList from "@/ui/components/chat/MessageList.vue";
 import {JsonToArr} from "@/main.js";
 import {ref} from "vue";
+import DropdownToggleButton from "@/ui/components/buttons/DropdownToggleButton.vue";
 
 defineProps({
   messages: Array,
@@ -9,17 +10,12 @@ defineProps({
 })
 
 let isChatOpen = ref(true)
-function toggleChat() {
-  isChatOpen.value = !isChatOpen.value
-}
+
 </script>
 
 <template>
 <div class="wrappers">
-  <div class="top">
-    <div class="title"><strong>Chat</strong></div>
-    <button @click="toggleChat">X</button>
-  </div>
+  <DropdownToggleButton title="Chat" :isOpen="isChatOpen" @isOpen="(bool) => {isChatOpen = bool}"/>
 
   <hr v-if="isChatOpen" class="hr-horizontal">
   <MessageList v-if="isChatOpen" :messages="JsonToArr(messages, 'users')" :chatHeight="chatHeight"/>
@@ -28,16 +24,6 @@ function toggleChat() {
 </template>
 
 <style scoped>
-.top {
-  display: flex;
-  padding: 8px;
-  background: var(--lighter-dark-color);
-}
-.top > button {
-  aspect-ratio: 1/1;
-  width: 50px;
-  margin-left: auto;
-}
 .wrappers {
   max-height: v-bind(chatHeight);
   display: flex;

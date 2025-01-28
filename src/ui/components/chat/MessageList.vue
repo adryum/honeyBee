@@ -1,5 +1,6 @@
 <script setup>
 import UserMessage from "@/ui/components/chat/UserMessage.vue";
+import { toUserMessageModel } from "@/core/models/UserMessageModel.js"
 
 defineProps({
   messages: Array,
@@ -10,10 +11,7 @@ defineProps({
 <template>
   <div class="chat">
     <UserMessage v-for="(user, index) in messages" :key="index"
-                 :borderColor="user.borderColor"
-                 :username="user.username"
-                 :message="user.message"
-                 :pathToIcon="user.icon"
+                 :UserMessageModel="toUserMessageModel(user)"
     />
   </div>
 </template>

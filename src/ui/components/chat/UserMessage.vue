@@ -1,18 +1,17 @@
 <script setup>
 
+import {UserMessageModel} from "@/core/models/UserMessageModel.js";
+
 defineProps({
-  pathToIcon: String,
-  borderColor: String,
-  username: String,
-  message: String
+  UserMessageModel: UserMessageModel
 })
 </script>
 
 <template>
 <div class="wrapper">
   <img class="icon" alt="player-icon" src=""/>
-  <p>{{ username }}:</p>
-  <p>{{ message }}</p>
+  <p>{{ UserMessageModel.username }}:</p>
+  <p>{{ UserMessageModel.message }}</p>
 </div>
 </template>
 
@@ -30,7 +29,7 @@ defineProps({
   aspect-ratio: 1/1;
   border-radius: 100%;
   background: #ffd7b1;
-  border: 5px solid v-bind(borderColor);
+  border: 5px solid v-bind(UserMessageModel[borderColor]);
 }
 .wrapper > p {
   margin: 0;
@@ -39,6 +38,6 @@ defineProps({
   align-self: center;
 }
 p:first-of-type {
-  color: v-bind(borderColor);
+  color: v-bind(UserMessageModel[borderColor]);
 }
 </style>

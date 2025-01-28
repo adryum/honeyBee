@@ -2,10 +2,14 @@
 import MessageList from "@/ui/components/chat/MessageList.vue";
 
 import Podium from "@/ui/components/leaderboard/Podium.vue";
+import DropdownToggleButton from "@/ui/components/buttons/DropdownToggleButton.vue";
+import {ref} from "vue";
 
 defineProps({
   gameStats: Array
 })
+
+let isLeaderboardExpanded = ref(false)
 
 function sortStatsByScoreDESC(userArray) {
   let arrayClone = userArray.map((x) => x)
@@ -26,7 +30,11 @@ function removeHighestScoresFromTop(arr, amount) {
   <hr class="hr-horizontal">
   <Podium :gameScore="sortStatsByScoreDESC(gameStats)"/>
   <hr class="separator">
-  <div class="others">
+  <DropdownToggleButton title="Others"
+                        :isOpen="isLeaderboardExpanded"
+                        @isOpen="(bool) => {isLeaderboardExpanded = bool}"
+  />
+  <div v-if="isLeaderboardExpanded" class="others">
     <MessageList :messages="removeHighestScoresFromTop(gameStats,3)" chat-height="100px"/>
   </div>
 </div>
