@@ -2,7 +2,9 @@
     --outer-border: 16px;
     --inner-border: 12px;
     --background-color: 40;
-    --font-main: Ebrima;
+    --font-main: "Cascadia Code";
+    /*font-family: "Cascadia Code";*/
+
     --widget-border-radius: 8px;
 }
 

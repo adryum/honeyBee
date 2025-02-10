@@ -9,16 +9,16 @@ defineProps({
 })
 let email = ref("")
 const requiredFields = [
-  [
-    {"title": "E-mail"},
-    {"placeHolder" : "..."},
-    {"type" : "email"}
-  ],
-  [
-    {"title": "Password"},
-    {"placeHolder" : "..."},
-    {"type" : "password"}
-  ]
+  {
+    "title": "E-mail",
+    "placeHolder" : "...",
+    "type" : "email"
+  },
+  {
+    "title": "Password",
+    "placeHolder" : "...",
+    "type" : "password"
+  }
 ]
 </script>
 
@@ -40,8 +40,9 @@ const requiredFields = [
 
 <style scoped>
 .container {
-  width: 40vw;
-  height: 50vw;
+  width: 30rem;
+
+  height: 40rem;
   background: rgba(255,255,255,0.8);
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, .5);
   border-radius: 20px;
