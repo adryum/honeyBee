@@ -16,14 +16,14 @@ function onEdit() {
 </script>
 
 <template>
-<div class="input-wrapper">
+<form class="input-wrapper">
   <h1>{{ title }}</h1>
 <input :class="(isFocused) ? focused-input : unfocused-input" @change="onEdit" @focusin="isFocused.value = true" @focusout="isFocused.value = false"
          :type="type"
          :value="value"
          :placeholder="placeHolder"
   />
-</div>
+</form>
 </template>
 
 <style scoped>
@@ -43,7 +43,7 @@ input {
 
   box-sizing: border-box;
   padding-left: 8px;
-  border-radius: 8px;
+  border-radius: var(--widget-border-radius);
   border: none;
 }
 .focused-input {

@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import InputField from "@/ui/components/InputField.vue";
+import CheckboxWithText from "@/ui/components/buttons/CheckboxWithText.vue";
 import LockableButton from "@/ui/components/buttons/LockableButton.vue";
 
 defineProps({
@@ -11,6 +12,11 @@ defineProps({
 let email = ref("")
 const requiredFields = [
   {
+    "title": "Username",
+    "placeHolder" : "...",
+    "type" : "text"
+  },
+  {
     "title": "E-mail",
     "placeHolder" : "...",
     "type" : "email"
@@ -19,22 +25,30 @@ const requiredFields = [
     "title": "Password",
     "placeHolder" : "...",
     "type" : "password"
+  },
+  {
+    "title": "Confirm Password",
+    "placeHolder" : "...",
+    "type" : "password"
   }
 ]
 </script>
 
 <template>
-<div class="container">
-  <h1 class="login-title"><strong>Login</strong></h1>
-  <InputField class="input-field" v-for="(field, i) in requiredFields" :key="i"
-              :title="field['title']"
-              :place-holder="field['placeHolder']"
-              :type="field['type']"
-              @onEdit="args => email = args"
-  />
-  <LockableButton class="submit-button" :is-unlocked="false" type="submit" text="Log in"/>
-  <p class="options">Forgot your password?  /  sign up</p>
-</div>
+  <div class="container">
+    <h1 class="login-title"><strong>Sign Up</strong></h1>
+
+    <InputField class="input-field" v-for="(field, i) in requiredFields" :key="i"
+                :title="field['title']"
+                :place-holder="field['placeHolder']"
+                :type="field['type']"
+                @onEdit="args => email = args"
+    />
+    <CheckboxWithText class="checkbox" text="Agree to terms and services"/>
+    <CheckboxWithText class="checkbox" text="Receive spam and other things"/>
+    <LockableButton class="submit-button" :is-unlocked="true" type="submit" text="Sign Up"/>
+    <p class="options">Log in</p>
+  </div>
 </template>
 
 <style scoped>
@@ -42,7 +56,6 @@ const requiredFields = [
   display: flex;
   flex-direction: column;
   width: 30rem;
-  max-height: 40rem;
 
   background: rgba(255,255,255,0.8);
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, .5);

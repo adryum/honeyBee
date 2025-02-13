@@ -1,14 +1,14 @@
-<template>
-  <div @click="action" class="wrapper cool-border">
-    <p class="text" ><strong>{{ text }}</strong></p>
-  </div>
-</template>
-
 <script>
 export default {
   props: ['text', 'action']
 }
 </script>
+
+<template>
+  <div @click="action" class="wrapper cool-border">
+    <p class="text" ><strong>{{ text }}</strong></p>
+  </div>
+</template>
 
 <style scoped>
 

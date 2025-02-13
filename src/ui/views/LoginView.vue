@@ -1,5 +1,6 @@
 <script setup>
 import LoginWidget from "@/ui/components/LoginWidget.vue";
+import SignUpWidget from "@/ui/components/SignUpWidget.vue";
 
 const props = defineProps({
   username: String,
@@ -14,6 +15,7 @@ const props = defineProps({
   <main>
     <img class="background" src="/src/ui/assets/images/honeyCombWall.jpg" alt="honey-comb-wall">
     <LoginWidget/>
+    <SignUpWidget/>
   </main>
 </template>
 
