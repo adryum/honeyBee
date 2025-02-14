@@ -9,7 +9,6 @@ defineProps({
 const emits = defineEmits(['onEdit'])
 
 let value = ref("")
-let isFocused = ref(false)
 function onEdit() {
   emits('onEdit', value)
 }
@@ -18,7 +17,7 @@ function onEdit() {
 <template>
 <form class="input-wrapper">
   <h1>{{ title }}</h1>
-<input :class="(isFocused) ? focused-input : unfocused-input" @change="onEdit" @focusin="isFocused.value = true" @focusout="isFocused.value = false"
+  <input class="local-input-field" @change="onEdit"
          :type="type"
          :value="value"
          :placeholder="placeHolder"
@@ -33,6 +32,15 @@ function onEdit() {
 
   font-family: var(--font-main);
 }
+.local-input-field {
+  position: relative;
+  font-size: 1rem;
+  transition: .3s;
+}
+.local-input-field:focus {
+  outline: none;
+  background: gold;
+}
 h1 {
   margin: 0 0 10px 0
 }
@@ -45,11 +53,5 @@ input {
   padding-left: 8px;
   border-radius: var(--widget-border-radius);
   border: none;
-}
-.focused-input {
-
-}
-.unfocused-input {
-
 }
 </style>

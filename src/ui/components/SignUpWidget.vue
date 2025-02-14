@@ -47,7 +47,7 @@ const requiredFields = [
     <CheckboxWithText class="checkbox" text="Agree to terms and services"/>
     <CheckboxWithText class="checkbox" text="Receive spam and other things"/>
     <LockableButton class="submit-button" :is-unlocked="true" type="submit" text="Sign Up"/>
-    <p class="options">Log in</p>
+    <RouterLink to="/login">Log in</RouterLink>
   </div>
 </template>
 

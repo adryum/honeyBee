@@ -15,7 +15,6 @@ const props = defineProps({
   <main>
     <img class="background" src="/src/ui/assets/images/honeyCombWall.jpg" alt="honey-comb-wall">
     <LoginWidget/>
-    <SignUpWidget/>
   </main>
 </template>
 

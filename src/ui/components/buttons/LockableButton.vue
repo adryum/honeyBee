@@ -33,6 +33,9 @@ button:hover {
   border-radius: var(--widget-border-radius);
   transition: .3s;
 }
+.active-button:hover {
+  scale: 1.05;
+}
 .active-button {
   background: linear-gradient(100deg,
   rgb(236, 210, 15),
@@ -42,8 +45,8 @@ button:hover {
 
 .disabled-button {
   background:  linear-gradient(100deg,
-  rgb(228, 40, 40) 65%,
-  rgb(236, 210, 15)
+  rgb(228, 40, 40) ,
+  rgb(135, 21, 0) 95%
   );
 }
 </style>

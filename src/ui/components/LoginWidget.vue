@@ -33,7 +33,8 @@ const requiredFields = [
               @onEdit="args => email = args"
   />
   <LockableButton class="submit-button" :is-unlocked="false" type="submit" text="Log in"/>
-  <p class="options">Forgot your password?  /  sign up</p>
+  <RouterLink to="/signup">Sign up</RouterLink>
+  <RouterLink to="/accountRecovery">Forgot your password?</RouterLink>
 </div>
 </template>
 
