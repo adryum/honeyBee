@@ -72,7 +72,7 @@ const requiredFields = [
   font-size: 3rem;
 }
 .checkbox {
-
+font-size: 1em;
 }
 .submit-button {
   align-self: center;

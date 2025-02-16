@@ -1,8 +1,9 @@
 <script setup>
 import LoginWidget from "@/ui/components/LoginWidget.vue";
-import SignUpWidget from "@/ui/components/SignUpWidget.vue";
+import {BackgroundType} from "@/main.js";
+import BackgroundWidget from "@/ui/components/BackgroundWidget.vue";
 
-const props = defineProps({
+defineProps({
   username: String,
   email: String,
   password: String
@@ -13,7 +14,7 @@ const props = defineProps({
 
 <template>
   <main>
-    <img class="background" src="/src/ui/assets/images/honeyCombWall.jpg" alt="honey-comb-wall">
+    <BackgroundWidget :type="BackgroundType.DimmedAndBlurred" src="/src/ui/assets/images/honeyCombWall.jpg" alt="honey-comb-wall"/>
     <LoginWidget/>
   </main>
 </template>
@@ -25,13 +26,5 @@ main {
   align-items: center;
   flex-direction: row;
   height: 100vh;
-}
-.background {
-  position: absolute;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  filter: blur(4px);
-  z-index: -1;
 }
 </style>

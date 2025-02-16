@@ -19,3 +19,9 @@ export const PodiumPlace = Object.freeze({
   Second: 2,
   Third: 3
 });
+
+export const BackgroundType = Object.freeze({
+  Dim: 1,
+  Blurred: 2,
+  DimmedAndBlurred: 3
+});

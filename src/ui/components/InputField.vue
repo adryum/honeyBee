@@ -39,9 +39,10 @@ function onEdit() {
 }
 .local-input-field:focus {
   outline: none;
-  background: gold;
+  background: #ffeeaa;
 }
 h1 {
+  font-size: 1.5em;
   margin: 0 0 10px 0
 }
 input {

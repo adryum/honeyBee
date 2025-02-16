@@ -26,4 +26,8 @@ function checkBox() {
 .checkbox-container > * {
   margin: 0;
 }
+input {
+  aspect-ratio: 1/1;
+  width: 1rem;
+}
 </style>
