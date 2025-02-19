@@ -3,6 +3,7 @@ import HomeView from '@/ui/views/HomeView.vue'
 import LoginView from '@/ui/views/registration/LoginView.vue'
 import SignUpView from "@/ui/views/registration/SignUpView.vue";
 import AccountRecoveryView from "@/ui/views/registration/AccountRecoveryView.vue";
+import TrueHomeView from "@/ui/views/TrueHomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: LoginView,
+      component: TrueHomeView,
     },
     {
       path: '/login',
@@ -31,6 +32,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       // component: () => import('@/ui/views/AboutView.vue'),
     },
+    {
+      path: '/game',
+      name: 'game',
+      component: HomeView
+    }
   ],
 })
 
