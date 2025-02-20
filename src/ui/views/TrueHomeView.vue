@@ -3,6 +3,7 @@
 
 import {ref} from "vue";
 import {DeskView} from "@/main.js";
+import ItemCard from "@/ui/components/cards/ItemCard.vue";
 
 let currentView = ref(DeskView.Home)
 function setView(view) {
@@ -34,7 +35,14 @@ const viewChoices = [
       </button>
     </div>
     <hr class="hr-vertical">
-    <div class="desk">
+    <div class="desk spaced-evenly scroll-y">
+      <ItemCard name="asd"/>
+      <ItemCard name="asdasdasdasdasdasd"/>
+      <ItemCard name="asdasdasdasdasdasd"/>
+      <ItemCard name="asdasd asd asda asd asdas dad"/>
+      <ItemCard name="asdasd asd asda asd asdas dad"/>
+      <ItemCard name="asdasd asd asda asd asdas dad"/>
+
       <div v-if="currentView === DeskView.Apiaries" class="apiaries">
         <div v-for="i in 10" :key="i" class="apiary">apiary {{ i }}</div>
       </div>
