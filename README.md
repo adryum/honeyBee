@@ -1,35 +1,37 @@
-# vue-project
+[//]: # (## Recommended IDE Setup)
 
-This template should help get you started developing with Vue 3 in Vite.
+[//]: # ()
+[//]: # ([VSCode]&#40;https://code.visualstudio.com/&#41; + [Volar]&#40;https://marketplace.visualstudio.com/items?itemName=Vue.volar&#41; &#40;and disable Vetur&#41;.)
 
-## Recommended IDE Setup
+[//]: # ()
+[//]: # (## Customize configuration)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[//]: # ()
+[//]: # (See [Vite Configuration Reference]&#40;https://vite.dev/config/&#41;.)
 
-## Customize configuration
+[//]: # ()
+Par progresu.. Biju mainījis savu ideju 3 reizes.
+Pirmā bija Latvijas ūdenstilpju temperatūru mājaslapu (parāda ūdens temperatūru, piem., daugavā, pie jūrmalas u.t.t.).
+Otrā bija YouTube viktorīnu spēle (sitēma ar YouTube API izvelk random video un lietotājam ir kaut kas par to jāatmin).
+Un trešā ir Datubāzu sistēma priekš biškopības - tā ko es tagad veidoju. Tādēļ progress ir ļoti mazs, bet viņš ir!!
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Kas ir izdarīts:
+- Izveidots Login, Sign in un gandrīzs Home View.
+- Izveidoti vairāki atsevišķi komponenti, kurus es izmantoju savām iepriekšējām idejām, kā arī daži priekš šīs idejas.
 
-## Project Setup
+Esmu TrueHomeView komponentā pievienojis header ar RouterLinkiem uz katru izveidoto skatu 'View'. Tas ir dzeltenā krāsā augšā :)
 
-```sh
-npm install
-```
+Ideja:
+Datubāzes sistēma priekš biškopības, kura atvieglos biškopja ikdienas darbu ar datiem.
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Sistēma atvieglos darbu ar, un veiks:
+- pierakstu veikšanu;
+- datu kārtošanu, meklēšanu, rediģēšanu u.t.t;
+- Bišu saimju, dravu, stropu pārvaldi;
+- Inventāra reģistrēšanu un pišķiršanu pie stropiem;
+- Finansu pārskati - ieguvumi, izdevumi, grafiki, statistika;
+- Laikaapstākļu apskates iespēja pie lietotāja dravām;
+- Atrast stropu, dravu lokāciju ar mapes palīdzību;
+- Bišu slimībām un profilakses veidiem;
+- Ieplānot kalendārā visādus darbus;
+- un citas lietas.
