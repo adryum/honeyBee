@@ -28,6 +28,13 @@ const viewChoices = [
 </script>
 
 <template>
+  <header class="header">
+    <RouterLink to="login">LoginView</RouterLink>
+    <RouterLink to="signup">SignupView</RouterLink>
+    <RouterLink to="game">GameView</RouterLink>
+    <RouterLink to="about">AboutView</RouterLink>
+    <RouterLink to="accountRecovery">AccountRecoveryView</RouterLink>
+  </header>
   <main>
     <div class="view-choice">
       <button v-for="(view, i) in viewChoices" :key="i"
@@ -57,6 +64,19 @@ const viewChoices = [
 </template>
 
 <style scoped>
+.header {
+  display: flex;
+  gap: 20px;
+  height: 100px;
+  background: gold;
+}
+header > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
 main {
   display: flex;
   flex-direction: row;

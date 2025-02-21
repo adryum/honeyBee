@@ -4,6 +4,7 @@ import LoginView from '@/ui/views/registration/LoginView.vue'
 import SignUpView from "@/ui/views/registration/SignUpView.vue";
 import AccountRecoveryView from "@/ui/views/registration/AccountRecoveryView.vue";
 import TrueHomeView from "@/ui/views/TrueHomeView.vue";
+import AboutView from "@/ui/views/AboutView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,11 @@ const router = createRouter({
       path: '/game',
       name: 'game',
       component: HomeView
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView
     }
   ],
 })

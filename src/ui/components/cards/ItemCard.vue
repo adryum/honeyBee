@@ -1,4 +1,6 @@
 <script setup>
+import {ref, useTemplateRef} from "vue";
+
 defineProps({
   name: String
 })
@@ -71,6 +73,6 @@ function leanTowardsMouse(e) {
   background: rgba(255,255,255, 0.5);
 }
 .perspective-box {
-  perspective: 100px;
+  perspective: 150px;
 }
 </style>
