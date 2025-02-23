@@ -4,6 +4,8 @@
 import {ref} from "vue";
 import {DeskView} from "@/main.js";
 import ItemCard from "@/ui/components/cards/ItemCard.vue";
+import HiveCard from "@/ui/components/cards/HiveCard.vue";
+import ApiaryCard from "@/ui/components/cards/ApiaryCard.vue";
 
 let currentView = ref(DeskView.Home)
 function setView(view) {
@@ -42,22 +44,15 @@ const viewChoices = [
       </button>
     </div>
     <hr class="hr-vertical">
-    <div class="desk spaced-evenly scroll-y">
-      <ItemCard name="asd"/>
-      <ItemCard name="asdasdasdasdasdasd"/>
-      <ItemCard name="asdasdasdasdasdasd"/>
-      <ItemCard name="asdasd asd asda asd asdas dad"/>
-      <ItemCard name="asdasd asd asda asd asdas dad"/>
-      <ItemCard name="asdasd asd asda asd asdas dad"/>
-
-      <div v-if="currentView === DeskView.Apiaries" class="apiaries">
-        <div v-for="i in 10" :key="i" class="apiary">apiary {{ i }}</div>
+    <div class="desk">
+      <div v-if="currentView === DeskView.Apiaries" class="spaced-evenly-container scroll-y">
+        <ApiaryCard v-for="i in 10" :key="i" :name="'hive numero ' + i"/>
       </div>
-      <div v-if="currentView === DeskView.Inventory" class="apiaries">
-        <div v-for="i in 10" :key="i" class="apiary">Inventory {{ i }}</div>
+      <div v-if="currentView === DeskView.Inventory" class="spaced-evenly-container scroll-y">
+        <ItemCard v-for="i in 10" :key="i"/>
       </div>
-      <div v-if="currentView === DeskView.Finances" class="apiaries">
-        <div v-for="i in 10" :key="i" class="apiary">Finances {{ i }}</div>
+      <div v-if="currentView === DeskView.Finances" class="spaced-evenly-container scroll-y">
+        <ItemCard v-for="i in 10" :key="i"/>
       </div>
     </div>
   </main>
@@ -111,24 +106,6 @@ main {
 .desk {
   display: flex;
   flex: 1;
-  background: #fff4d6;
-}
-.apiaries {
-  display: grid;
-  overflow-y: scroll;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  margin: 10px;
-  width: 100%;
-
-  background: #789197;
-}
-.apiary {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-
   background: #fff4d6;
 }
 </style>
