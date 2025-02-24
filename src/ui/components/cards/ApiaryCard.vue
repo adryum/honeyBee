@@ -1,93 +1,65 @@
 <script setup>
-import {ref, useTemplateRef} from "vue";
-
 defineProps({
   name: String
 })
-
-let isAnimationCanceled = ref(false)
-
-let card = useTemplateRef('card') // only this card element. NOT THOSE CHILDRENNN!!!!
-function tran() {
-  new Promise(resolve => setTimeout(() => {resolve; isAnimationCanceled.value = true;}, 100));
-}
-
-function clearTransform() {
-  // Needs to be called only when exiting THE card
-  card.value.style.transition = '.15s'
-  card.value.style.transform = ''
-  isAnimationCanceled.value = false
-  console.log('cleared')
-}
-
-function leanTowardsMouse(e) {
-  let elementsHalfOfTheWidth = card.value.getBoundingClientRect().width / 2
-  let elementsHalfOfTheHeight = card.value.getBoundingClientRect().height / 2
-
-  let elementCenterXPos = card.value.getBoundingClientRect().x + elementsHalfOfTheWidth  // y axis
-  let elementCenterYPos = card.value.getBoundingClientRect().y + elementsHalfOfTheHeight  // x axis
-
-  // Gets values from -1 to 1 (from cursor pos)
-  let xPosError = (e.clientX - elementCenterXPos) / elementsHalfOfTheWidth
-  let yPosError = (e.clientY - elementCenterYPos) / elementsHalfOfTheHeight
-
-  if (isAnimationCanceled.value) card.value.style.transition = 'none'
-  card.value.style.transform = `rotateY(${xPosError}deg) rotateX(${-yPosError}deg)`
-}
 </script>
 
 <template>
-  <div class="perspective-box">
-    <div ref="card" class="item-card-wrapper cut-rounded-border">
-      <div class="left-div flex-2">
-        <div class="flex-2"><img class="card-image" src="/src/ui/assets/images/honeyCombWall.jpg" alt=""></div>
-        <hr class="hr-horizontal-transparent">
-        <h2 class="flex-1 bg-white margin-0">{{ name }}</h2>
+  <div class="item-card-wrapper cut-rounded-border display-flex-row">
+    <div class="display-flex-column flex-2">
+      <div class="top-row bg-white display-flex-row">
+        <h1>NR. 1</h1>
+        <h2 class="flex-1">NAme n shit</h2>
+        <div>options</div>
       </div>
-      <hr class="hr-vertical">
-      <div class="right-div flex-1">
-        <p class="flex-1 bg-white margin-0">Hive Count</p>
-        <hr class="hr-horizontal-transparent">
-        <p class="flex-1 bg-white margin-0">Locations</p>
+      <hr class="hr-horizontal-transparent">
+      <div class="bottom-row display-flex-row flex-1">
+        <div class="left-side flex-3 display-flex-column">
+          <div class="image-container bg-white"><img class="card-image" src="/src/ui/assets/images/honeyCombWall.jpg" alt=""></div>
+
+          <hr class="hr-horizontal-transparent">
+
+          <div class="bottom flex-1 display-flex-row">
+            <div class="description flex-1 bg-white">description</div>
+            <hr class="hr-vertical">
+            <div class="notes flex-1 bg-white">notes</div>
+          </div>
+        </div>
+
+        <hr class="hr-vertical">
+
+        <div class="right-side display-flex-column flex-2">
+          <div class="flex-1 bg-white">hives</div>
+          <hr class="hr-horizontal-transparent">
+          <div class="flex-1 bg-white">weather</div>
+          <hr class="hr-horizontal-transparent">
+          <div class="flex-1 bg-white">location</div>
+        </div>
       </div>
     </div>
+    <hr class="hr-vertical">
+    <div class="flex-1 bg-white">Action history</div>
   </div>
 </template>
 
 <style scoped>
 .item-card-wrapper {
-  display: flex;
   width: 100%;
   height: 25vw;
+  font-size: 1rem;
 
   transition: .1s;
 }
-.left-div {
-  display: flex;
-  flex-direction: column;
+.left-side {
+  align-items: stretch;
 }
-.right-div {
-  display: flex;
-  flex-direction: column;
+.image-container {
+
+
 }
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.text-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(0.5rem, 1rem, 3rem);
-
-  flex: 1;
-}
-.text-div > h2 {
-  margin: 0;
-
-}
-.perspective-box {
-  perspective: 150px;
 }
 </style>
