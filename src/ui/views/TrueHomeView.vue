@@ -6,6 +6,7 @@ import {DeskView} from "@/main.js";
 import ItemCard from "@/ui/components/cards/ItemCard.vue";
 import HiveCard from "@/ui/components/cards/HiveCard.vue";
 import ApiaryCard from "@/ui/components/cards/ApiaryCard.vue";
+import HomeHeader from "@/ui/components/HomeHeader.vue";
 
 let currentView = ref(DeskView.Home)
 function setView(view) {
@@ -30,13 +31,7 @@ const viewChoices = [
 </script>
 
 <template>
-  <header class="header">
-    <RouterLink to="login">LoginView</RouterLink>
-    <RouterLink to="signup">SignupView</RouterLink>
-    <RouterLink to="game">GameView</RouterLink>
-    <RouterLink to="about">AboutView</RouterLink>
-    <RouterLink to="accountRecovery">AccountRecoveryView</RouterLink>
-  </header>
+  <HomeHeader/>
   <main>
     <div class="view-choice">
       <button v-for="(view, i) in viewChoices" :key="i"
