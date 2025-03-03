@@ -1,18 +1,44 @@
 <script setup>
 
+import {DeskView} from "@/main.js";
+
+const emits = defineEmits(['onClick'])
+function choseView(view) {
+  emits('onClick', view)
+}
+
+const viewChoices = [
+  {
+    "text": "Apiaries",
+    "view": DeskView.Apiaries,
+  },
+  {
+    "text": "Inventory",
+    "view": DeskView.Inventory,
+  },
+  {
+    "text": "Finances",
+    "view": DeskView.Finances,
+  },
+]
 </script>
 
 <template>
 <div class="header-container">
-  <RouterLink class="choice" to="apiaries">Apiaries</RouterLink>
-  <RouterLink class="choice selected" to="finance">Finance</RouterLink>
-  <RouterLink class="choice" to="inventory">Inventory</RouterLink>
-  <RouterLink class="choice" to="profile">Profile</RouterLink>
+  <button v-for="(view, i) in viewChoices" :key="i"
+              @click="choseView(view.view)"
+              :class="{'selected': (currentView === view.view)}"
+              class="choice"
+  >
+    {{ view.text }}
+  </button>
+
 </div>
 </template>
 
 <style scoped>
 .header-container {
+  position: absolute;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;
@@ -30,8 +56,16 @@
   color: #ffd7b1;
   text-decoration: none;
   box-shadow: black 2px 2px 8px 0;
+
+  /* removes default styling */
+  padding: 0;
+  border: none;
+  background: none;
 }
 .choice:hover {
+  box-shadow: black 2px 2px 8px 0 inset;
+}
+.selected {
   box-shadow: black 2px 2px 8px 0 inset;
 }
 </style>
