@@ -70,7 +70,6 @@ button:hover {
   overflow: scroll;
 }
 
-
 .wrapper{
   position: relative;
   display: flex;

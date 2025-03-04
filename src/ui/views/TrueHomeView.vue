@@ -1,12 +1,21 @@
 <script setup>
-
-
 import {ref} from "vue";
 import {DeskView} from "@/main.js";
 import HomeHeader from "@/ui/components/HomeHeader.vue";
 import HiveLayer from "@/ui/components/HiveLayer.vue";
+import ApiaryList from "@/ui/components/ApiaryList.vue";
 let isHiveLayerSelected = ref(false)
 let currentView = ref(DeskView.Home)
+
+const currentTab = ref(ApiaryList)
+
+function setComponent(view) {
+  switch (view) {
+    case DeskView.Apiaries: currentTab.value = ApiaryList;  break;
+    case DeskView.Inventory: currentTab.value = ApiaryList;  break;
+    case DeskView.Finances: currentTab.value = ApiaryList;  break;
+  }
+}
 
 function isSelected(value) {
   isHiveLayerSelected.value = value
@@ -18,7 +27,10 @@ function setDrawerView(view) {
   if (currentView.value === view) {
     currentView.value = DeskView.Home
   } else {
-    setTimeout(() => isSelected(true), 100);
+    setTimeout(() => {
+      isSelected(true)
+      setComponent()
+    }, 100);
     currentView.value = view
   }
 }
@@ -29,7 +41,7 @@ function setDrawerView(view) {
   <HomeHeader @onClick="(componentDrawer) => setDrawerView(componentDrawer)"/>
   <main>
     <HiveLayer :selected="isHiveLayerSelected">
-
+      <component :is="currentTab"/>
     </HiveLayer>
 <!--    <div class="desk">-->
 <!--      <div v-if="currentView === DeskView.Apiaries" class="spaced-evenly-container scroll-y">-->
