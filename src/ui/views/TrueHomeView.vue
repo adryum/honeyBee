@@ -17,6 +17,11 @@ function setComponent(view) {
   }
 }
 
+function giveCurrentProperties() {
+  if (currentTab.value === ApiaryList) return { apiaryList: [] }
+
+}
+
 function isSelected(value) {
   isHiveLayerSelected.value = value
 }
@@ -28,8 +33,8 @@ function setDrawerView(view) {
     currentView.value = DeskView.Home
   } else {
     setTimeout(() => {
+      setComponent(view)
       isSelected(true)
-      setComponent()
     }, 100);
     currentView.value = view
   }
@@ -41,7 +46,7 @@ function setDrawerView(view) {
   <HomeHeader @onClick="(componentDrawer) => setDrawerView(componentDrawer)"/>
   <main>
     <HiveLayer :selected="isHiveLayerSelected">
-      <component :is="currentTab"/>
+      <component :is="currentTab" v-bind="giveCurrentProperties"/>
     </HiveLayer>
 <!--    <div class="desk">-->
 <!--      <div v-if="currentView === DeskView.Apiaries" class="spaced-evenly-container scroll-y">-->

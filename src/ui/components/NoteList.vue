@@ -1,5 +1,5 @@
 <script setup>
-import SideTaskbarCard from '../components/SideTaskbarCard.vue'
+import SideTaskbarCard from '../components/NoteListCard.vue'
 
 </script>
 
