@@ -1,19 +1,21 @@
 <script setup>
-import {ref} from "vue";
+import {ref, shallowRef} from "vue";
 import {DeskView} from "@/main.js";
 import HomeHeader from "@/ui/components/HomeHeader.vue";
-import HiveLayer from "@/ui/components/HiveLayer.vue";
 import ApiaryList from "@/ui/components/ApiaryList.vue";
-let isHiveLayerSelected = ref(false)
+import InventoryItemList from "@/ui/components/InventoryItemList.vue";
+import FinanceComponent from "@/ui/components/FinanceComponent.vue";
+
+let isHiveLayerSelected = ref(true)
 let currentView = ref(DeskView.Home)
 
-const currentTab = ref(ApiaryList)
+const currentTab = shallowRef(ApiaryList)
 
 function setComponent(view) {
   switch (view) {
     case DeskView.Apiaries: currentTab.value = ApiaryList;  break;
-    case DeskView.Inventory: currentTab.value = ApiaryList;  break;
-    case DeskView.Finances: currentTab.value = ApiaryList;  break;
+    case DeskView.Inventory: currentTab.value = InventoryItemList;  break;
+    case DeskView.Finances: currentTab.value = FinanceComponent;  break;
   }
 }
 
@@ -38,39 +40,71 @@ function setDrawerView(view) {
     }, 100);
     currentView.value = view
   }
+
+  console.log(currentTab.value)
 }
 
 </script>
 
 <template>
-  <HomeHeader @onClick="(componentDrawer) => setDrawerView(componentDrawer)"/>
   <main>
-    <HiveLayer :selected="isHiveLayerSelected">
-      <component :is="currentTab" v-bind="giveCurrentProperties"/>
-    </HiveLayer>
-<!--    <div class="desk">-->
-<!--      <div v-if="currentView === DeskView.Apiaries" class="spaced-evenly-container scroll-y">-->
-<!--        <ApiaryCard v-for="i in 10" :key="i" :name="'hive numero ' + i"/>-->
-<!--      </div>-->
-<!--      <div v-if="currentView === DeskView.Inventory" class="spaced-evenly-container scroll-y">-->
-<!--        <ItemCard v-for="i in 10" :key="i"/>-->
-<!--      </div>-->
-<!--      <div v-if="currentView === DeskView.Finances" class="spaced-evenly-container scroll-y">-->
-<!--        <ItemCard v-for="i in 10" :key="i"/>-->
-<!--      </div>-->
-<!--    </div>-->
+    <HomeHeader @onClick="(componentDrawer) => setDrawerView(componentDrawer)" :currentView="currentView"/>
+    <transition name="bounce">
+      <div v-if="isHiveLayerSelected" class="layer-container">
+        <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
+      </div>
+    </transition>
   </main>
 </template>
 
 <style scoped>
+.bounce-enter-active {
+  transition: .3s ease-in-out;
+  animation: bounce-in .2s;
+}
+.bounce-leave-active {
+  animation: close .05s ;
+}
+@keyframes bounce-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes close {
+  from {
+
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+.layer-container {
+  position: relative;
+  display: flex;
+  flex: auto;
+  margin-top: var(--header-height);
+
+  padding: 3rem 10px 10px 10px;
+  gap: 5rem;
+  justify-content: center;
+
+  background: #ffd7b1;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100vh;
-}
-.desk {
-  display: flex;
-  flex: 1;
-  background: #fff4d6;
 }
 </style>

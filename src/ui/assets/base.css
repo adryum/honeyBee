@@ -4,7 +4,7 @@
     --background-color: 40;
     --font-main: "Cascadia Code";
     /*font-family: "Cascadia Code";*/
-
+    --header-height: 5rem;
     --widget-border-radius: 8px;
 }
 

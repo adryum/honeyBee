@@ -1,5 +1,5 @@
 <script setup>
-import ApiaryCard from "@/ui/components/cards/ApiaryCard.vue";
+import ItemCard from "@/ui/components/cards/ItemCard.vue";
 
 defineProps({
   apiaryList: Array
@@ -7,7 +7,9 @@ defineProps({
 </script>
 
 <template>
-  <ApiaryCard v-for="i in 10" :key="i"/>
+
+  <ItemCard v-for="i in 10" :key="i"/>
+
 </template>
 
 <style scoped>
