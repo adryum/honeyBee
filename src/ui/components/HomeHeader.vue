@@ -1,30 +1,18 @@
 <script setup>
-
-import {DeskView} from "@/main.js"
-
 defineProps({
+  viewChoices: Object,
+  // { viewChoice
+  // "text": "Apiaries",
+  // "view": DeskView.Apiaries,
+  // },
   currentView: Number
 })
 
 const emits = defineEmits(['onClick'])
-function choseView(view) {
-  emits('onClick', view)
+function choseView(viewNumber) {
+  emits('onClick', viewNumber)
 }
 
-const viewChoices = [
-  {
-    "text": "Apiaries",
-    "view": DeskView.Apiaries,
-  },
-  {
-    "text": "Inventory",
-    "view": DeskView.Inventory,
-  },
-  {
-    "text": "Finances",
-    "view": DeskView.Finances,
-  },
-]
 </script>
 
 <template>
@@ -34,12 +22,11 @@ const viewChoices = [
   </div>
 
   <div class="bottom-header-part">
-    <button v-for="(view, i) in viewChoices" :key="i"
-            @click="choseView(view.view)"
-            :class="{'selected': (currentView === view.view)}"
-            class="choice"
-    >
-      {{ view.text }}
+    <button v-for="(choice, i) in viewChoices" :key="i"
+            @click="choseView(choice.view)"
+            :class="{'selected': (currentView === choice.view)}"
+            class="choice">
+      {{ choice.text }}
     </button>
   </div>
 </div>
@@ -58,7 +45,7 @@ const viewChoices = [
 .top-header-part {
   flex: 1;
   width: 100%;
-  background: linear-gradient(90deg, green ,cyan);
+  background: linear-gradient(90deg, #c66c06, #fff200);
 }
 .bottom-header-part {
   display: flex;

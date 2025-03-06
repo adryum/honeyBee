@@ -2,11 +2,13 @@
 import {ref, useTemplateRef} from "vue";
 
 defineProps({
-  name: String
+  name: String,
+  src: String,
+  storedCount: String,
+  registeredCount: String
 })
-
+// card leaning
 let isAnimationCanceled = ref(false)
-
 let card = useTemplateRef('card') // only this card element. NOT THOSE CHILDRENNN!!!!
 function tran() {
   new Promise(resolve => setTimeout(() => {resolve; isAnimationCanceled.value = true; console.log('entered')}, 100));
@@ -38,41 +40,107 @@ function leanTowardsMouse(e) {
 
 <template>
   <div class="perspective-box">
-    <div ref="card" id="card" @mouseleave="clearTransform" @mouseenter="tran" @mousemove="leanTowardsMouse" class="item-card-wrapper  scale-hover-1-1 pop-out-centered-shadow cut-rounded-border perspective-100">
-      <img class="card-image" src="/src/ui/assets/images/honeyCombWall.jpg" alt="">
-      <h2>{{ name }}</h2>
+    <div ref="card" id="card"
+         class="item-card-wrapper pop-out-centered-shadow cut-rounded-border perspective-100"
+         @mouseleave="clearTransform"
+         @mouseenter="tran"
+         @mousemove="leanTowardsMouse">
+      <div class="image-div">
+        <img class="card-image"
+             :src="(src !== undefined) ? src : '/src/ui/assets/images/honeyCombWall.jpg'" alt="">
+      </div>
+      <hr class="splitter">
+      <div class="information">
+        <h2>{{ (name !== undefined) ? name : "NONAME" }}</h2>
+        <hr>
+        <div class="bottom-info">
+          <p>In storage:</p>
+          <div>
+            <p>{{ (storedCount !== undefined) ? storedCount : "nan" }}</p>
+          </div>
+          <p>Total registered:</p>
+          <div>
+            <p>{{ (registeredCount !== undefined) ? registeredCount : "nan" }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.splitter {
+  margin: 0;
+  width: 100%;
+  border: none;
+  height: 4px;
+  background: #322929;
+}
+.perspective-box {
+  perspective: 250px;
+}
 .item-card-wrapper {
   display: flex;
   flex-direction: column;
   width: 20vw;
   height: 25vw;
+  font-family: Ebrima;
 
   transition: .1s;
 }
+.item-card-wrapper:hover {
+  scale: 1.08;
+}
+.image-div {
+  height: 60%;
+}
 .card-image {
-  flex: 1;
-  object-fit: cover;
-}
-.item-card-wrapper > h2 {
-
-  display: flex;
-  bottom: 0;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1rem, 2rem, 3rem);
-  text-align: center;
-
-  max-height: 5vw;
   width: 100%;
-  background: rgba(255,255,255, 0.5);
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
 }
-.perspective-box {
-  perspective: 150px;
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  flex: auto;
+  background: linear-gradient(150deg,  #313137, #484b55 40%, #313137);
+}
+.information > h2 {
+  color: azure;
+  font-size: 3rem;
+  margin: 0;
+}
+.information > hr {
+  width: 85%;
+  height: 4px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  margin: 0;
+}
+.bottom-info {
+  display: flex;
+  width: 100%;
+}
+.bottom-info > * {
+  font-size: 1.1rem;
+  font-weight: bold;
+  flex: auto;
+  width: 50%;
+  margin: 0 0 0 1rem;
+  text-align: start;
+  color: #dad8b6;
+}
+.bottom-info > div {
+  backdrop-filter: brightness(80%);
+  margin-right: 1rem;
+  border-radius: 10%;
+  text-align: center;
+  align-self: center;
 }
 </style>

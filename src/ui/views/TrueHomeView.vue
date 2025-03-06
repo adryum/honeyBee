@@ -6,10 +6,24 @@ import ApiaryList from "@/ui/components/ApiaryList.vue";
 import InventoryItemList from "@/ui/components/InventoryItemList.vue";
 import FinanceComponent from "@/ui/components/FinanceComponent.vue";
 
-let isHiveLayerSelected = ref(true)
-let currentView = ref(DeskView.Home)
+const viewChoices = [
+  {
+    "text": "Apiaries",
+    "view": DeskView.Apiaries,
+  },
+  {
+    "text": "Inventory",
+    "view": DeskView.Inventory,
+  },
+  {
+    "text": "Finances",
+    "view": DeskView.Finances,
+  },
+]
 
-const currentTab = shallowRef(ApiaryList)
+const isHiveLayerSelected = ref(true)
+const currentView = ref(DeskView.Home)
+const currentTab = shallowRef(InventoryItemList)
 
 function setComponent(view) {
   switch (view) {
@@ -24,31 +38,35 @@ function giveCurrentProperties() {
 
 }
 
-function isSelected(value) {
+function setIsTabSelected(value) {
   isHiveLayerSelected.value = value
 }
 
-function setDrawerView(view) {
-  isSelected(false)
+function setDrawerView(viewNumber) {
+  setIsTabSelected(false)
 
-  if (currentView.value === view) {
+  if (currentView.value === viewNumber) {
     currentView.value = DeskView.Home
   } else {
     setTimeout(() => {
-      setComponent(view)
-      isSelected(true)
+      setComponent(viewNumber)
+        // Makes sure that tab doesn't get opened when home view is shown
+        if (currentView.value !== DeskView.Home) {
+          setIsTabSelected(true)
+        }
     }, 100);
-    currentView.value = view
+    currentView.value = viewNumber
   }
-
-  console.log(currentTab.value)
 }
 
 </script>
 
 <template>
   <main>
-    <HomeHeader @onClick="(componentDrawer) => setDrawerView(componentDrawer)" :currentView="currentView"/>
+    <HomeHeader @onClick="(viewNumber) => setDrawerView(viewNumber)"
+                :currentView="currentView"
+                :viewChoices="viewChoices"
+    />
     <transition name="bounce">
       <div v-if="isHiveLayerSelected" class="layer-container">
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
