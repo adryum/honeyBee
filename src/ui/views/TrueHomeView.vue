@@ -5,6 +5,7 @@ import HomeHeader from "@/ui/components/HomeHeader.vue";
 import ApiaryList from "@/ui/components/ApiaryList.vue";
 import InventoryItemList from "@/ui/components/InventoryItemList.vue";
 import FinanceComponent from "@/ui/components/FinanceComponent.vue";
+import ModalItemCard from "@/ui/components/cards/ModalItemCard.vue";
 
 const viewChoices = [
   {
@@ -72,6 +73,7 @@ function setDrawerView(viewNumber) {
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
+    <ModalItemCard/>
   </main>
 </template>
 

@@ -82,8 +82,8 @@ function leanTowardsMouse(e) {
 .item-card-wrapper {
   display: flex;
   flex-direction: column;
-  width: 20vw;
-  height: 25vw;
+  width: 25rem;
+  height: 30rem;
   font-family: Ebrima;
 
   transition: .1s;
