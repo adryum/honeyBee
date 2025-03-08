@@ -73,7 +73,7 @@ function setDrawerView(viewNumber) {
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
-<!--    <ModalItemCard/>-->
+    <ModalItemCard/>
   </main>
 </template>
 

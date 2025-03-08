@@ -18,21 +18,35 @@
       <hr class="modal-hr-top-horizontal">
       <div class="bottom-row">
         <div class="assigned">
-          <p>assigned</p>
+          <div class="sub-header">
+            <h2>Assigned</h2>
+            <button>Settings</button>
+          </div>
           <hr class="modal-hr-horizontal">
 
         </div>
         <div class="available">
-          <p>available</p>
+          <div class="sub-header">
+            <h2>Available</h2>
+            <button>Settings</button>
+          </div>
           <hr class="modal-hr-horizontal">
         </div>
         <div class="third-column">
           <div class="description">
-            <p>Description</p>
+            <div class="sub-header">
+              <h2>Description</h2>
+              <button>Settings</button>
+            </div>
             <hr class="modal-hr-horizontal">
-            <p>
-              Dis sum good shit. Need More
-            </p>
+            <div class="scrollable-y">
+              <p>
+                Dis sum good shit. Need More
+                Dis sum good shit. Need More
+                Dis sum good shit. Need More
+
+              </p>
+            </div>
           </div>
           <div class="add-item">
             add
@@ -45,6 +59,12 @@
 </template>
 
 <style scoped>
+.sub-header {
+  display: flex;
+}
+.sub-header > h2 {
+  flex: auto;
+}
 .modal-hr-top-horizontal {
   border: none;
   height: 4px;
@@ -79,16 +99,37 @@
   border-radius: .7rem;
   overflow: clip;
 
+  font-family: Ebrima;
+  font-weight: bold;
+
   min-width: 80%;
   min-height: 80%;
   max-width: calc(100% - 3rem);
   max-height: calc(100% - 3rem);
-  background: linear-gradient(150deg,  #313137, #484b55 40%, #313137);
+}
+.top-row > h1 {
+  margin: 0 0 0 1rem;
+  font-size: 3rem;
+}
+.pop-up-card  h1, h2 {
+  flex: auto;
+  align-self: center;
+  color: azure;
+}
+.pop-up-card h2 {
+  margin: .5rem 0 .5rem 1rem;
+  font-size: 1.5rem;
+}
+.pop-up-card p {
+  margin: 1rem 0 0 1rem;
+  color: #bfbd9b;
+  font-size: 1.1rem;
 }
 .right-side {
   display: flex;
   flex-direction: column;
   flex: auto;
+  background: linear-gradient(150deg, #3b3c43 40%, #313137);
 }
 .button {
   aspect-ratio: 1/1;
@@ -96,11 +137,6 @@
 .top-row {
   display: flex;
   height: 8rem;
-}
-.top-row > h1 {
-  flex: auto;
-  margin: 0 0 0 1rem;
-  align-self: center;
 }
 .bottom-row {
   display: flex;
@@ -127,9 +163,18 @@
   gap: 1rem
 }
 .description {
+  display: flex;
+  flex-direction: column;
   backdrop-filter: brightness(60%);
   flex-grow: 1;
-  flex-basis: 50%;
+  max-height: 50%;
+}
+.scrollable-y {
+  flex: auto;
+  overflow-y: scroll;
+}
+.scrollable-y > p {
+  max-width: 100%;
 }
 .add-item {
   flex-grow: 1;
