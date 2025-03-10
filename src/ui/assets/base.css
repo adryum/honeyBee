@@ -24,6 +24,12 @@
     --lighter-dark-color: rgba(50,50,50, 1);
     --background-dark-color: rgba(30,30,30, 1);
 }
+.modal {
+    z-index: 1000;
+}
+.scrollable-y {
+    overflow-y: scroll;
+}
 .pop-out-shadow {
     box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, .5);;
 }

@@ -1,5 +1,6 @@
 <script setup>
 import {ref, useTemplateRef} from "vue";
+import ModalItemCard from "@/ui/components/cards/ModalItemCard.vue";
 
 defineProps({
   name: String,
@@ -7,6 +8,13 @@ defineProps({
   storedCount: String,
   registeredCount: String
 })
+
+const isCardOpened = ref(false)
+const cardModal = {
+  "openModal" : () => isCardOpened.value = true,
+  "closeModal" : () => isCardOpened.value = false
+}
+
 // card leaning
 let isAnimationCanceled = ref(false)
 let card = useTemplateRef('card') // only this card element. NOT THOSE CHILDRENNN!!!!
@@ -44,7 +52,9 @@ function leanTowardsMouse(e) {
          class="item-card-wrapper pop-out-centered-shadow cut-rounded-border perspective-100"
          @mouseleave="clearTransform"
          @mouseenter="tran"
-         @mousemove="leanTowardsMouse">
+         @mousemove="leanTowardsMouse"
+         @click="cardModal.openModal"
+    >
       <div class="image-div">
         <img class="card-image"
              :src="(src !== undefined) ? src : '/src/ui/assets/images/honeyCombWall.jpg'" alt="">
@@ -66,6 +76,7 @@ function leanTowardsMouse(e) {
       </div>
     </div>
   </div>
+  <ModalItemCard v-if="isCardOpened" class="modal" :onCloseClick="cardModal.closeModal"/>
 </template>
 
 <style scoped>

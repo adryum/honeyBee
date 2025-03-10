@@ -1,5 +1,7 @@
 <script setup>
-
+defineProps({
+  onCloseClick: Function
+})
 </script>
 
 <template>
@@ -13,27 +15,31 @@
       <div class="top-row">
         <h1>NAme</h1>
         <button class="button">Settings</button>
-        <button class="button">X</button>
+        <button class="button" @click="onCloseClick">X</button>
       </div>
       <hr class="modal-hr-top-horizontal">
       <div class="bottom-row">
-        <div class="assigned">
+
+        <div class="assigned modal-column dimmed-window">
           <div class="sub-header">
             <h2>Assigned</h2>
             <button>Settings</button>
           </div>
           <hr class="modal-hr-horizontal">
-
+          <div class="scrollable-y"></div>
         </div>
-        <div class="available">
+
+        <div class="available modal-column dimmed-window">
           <div class="sub-header">
             <h2>Available</h2>
             <button>Settings</button>
           </div>
           <hr class="modal-hr-horizontal">
+          <div class="scrollable-y"></div>
         </div>
-        <div class="third-column">
-          <div class="description">
+
+        <div class="third-column modal-column ">
+          <div class="description dimmed-window">
             <div class="sub-header">
               <h2>Description</h2>
               <button>Settings</button>
@@ -44,11 +50,48 @@
                 Dis sum good shit. Need More
                 Dis sum good shit. Need More
                 Dis sum good shit. Need More
+                Dis sum good shit. Need More
+                Dis sum good shit. Need More
+                Dis sum good shit. Need MoreDis sum good shit. Need More
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
+<!--                Dis sum good shit. Need More-->
 
               </p>
             </div>
           </div>
-          <div class="add-item">
+          <div class="add-item dimmed-window">
             add
           </div>
         </div>
@@ -79,12 +122,12 @@
 }
 .modal-hr-vertical {
   border: none;
-  width: 4px;
+  width: 8px;
   margin: 0;
   background: #323030;
 }
 .modal-container {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,16 +140,68 @@
 .pop-up-card {
   display: flex;
   border-radius: .7rem;
-  overflow: clip;
 
   font-family: Ebrima;
   font-weight: bold;
 
-  min-width: 80%;
-  min-height: 80%;
+  width: 80%;
+  height: 80%;
   max-width: calc(100% - 3rem);
   max-height: calc(100% - 3rem);
+  overflow-y: scroll;
 }
+.right-side {
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(150deg, #3b3c43 , #313137);
+}
+.image-div {
+  width: 50%;
+}
+.image-div > img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.button {
+  aspect-ratio: 1/1;
+  height: 100%;
+}
+.top-row {
+  display: flex;
+  height: 8rem;
+}
+.bottom-row {
+  display: flex;
+  flex: auto;
+  gap: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+.modal-column {
+  width: 100%;
+}
+.dimmed-window {
+  border-radius: .5rem;
+  backdrop-filter: brightness(60%);
+}
+.third-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  max-height: 50%;
+}
+.add-item {
+  flex-basis: 30%;
+}
+
+/* text css */
 .top-row > h1 {
   margin: 0 0 0 1rem;
   font-size: 3rem;
@@ -124,72 +219,5 @@
   margin: 1rem 0 0 1rem;
   color: #bfbd9b;
   font-size: 1.1rem;
-}
-.right-side {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  background: linear-gradient(150deg, #3b3c43 40%, #313137);
-}
-.button {
-  aspect-ratio: 1/1;
-}
-.top-row {
-  display: flex;
-  height: 8rem;
-}
-.bottom-row {
-  display: flex;
-  height: 100%;
-  gap: 1rem;
-  margin: 0 1rem 1rem 1rem;
-}
-.assigned, .available, .description {
-  border-radius: .5rem;
-  overflow: clip;
-}
-.assigned, .available {
-  flex: auto;
-  width: 50%;
-  height: 100%;
-  backdrop-filter: brightness(60%);
-}
-.third-column {
-  display: flex;
-  flex: auto;
-  width: 50%;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem
-}
-.description {
-  display: flex;
-  flex-direction: column;
-  backdrop-filter: brightness(60%);
-  flex-grow: 1;
-  max-height: 50%;
-}
-.scrollable-y {
-  flex: auto;
-  overflow-y: scroll;
-}
-.scrollable-y > p {
-  max-width: 100%;
-}
-.add-item {
-  flex-grow: 1;
-  backdrop-filter: brightness(60%);
-  flex-basis: 30%;
-}
-.image-div {
-  width: 30%;
-  overflow: hidden;
-}
-.image-div > img {
-  height: 100%;
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
 }
 </style>

@@ -7,9 +7,7 @@ defineProps({
 </script>
 
 <template>
-
   <ItemCard v-for="i in 10" :key="i" src="/src/ui/assets/images/axe.jpg"/>
-
 </template>
 
 <style scoped>
