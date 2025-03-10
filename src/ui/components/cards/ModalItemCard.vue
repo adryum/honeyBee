@@ -102,6 +102,14 @@ defineProps({
 </template>
 
 <style scoped>
+@keyframes grow-in {
+  from{
+    scale: .95;
+  }
+  to {
+    scale: 1;
+  }
+}
 .sub-header {
   display: flex;
 }
@@ -136,6 +144,8 @@ defineProps({
   height: calc(100% - var(--header-height));
   bottom: 0;
   backdrop-filter: brightness(20%) blur(4px);
+
+  transition: .3s;
 }
 .pop-up-card {
   display: flex;
@@ -149,6 +159,8 @@ defineProps({
   max-width: calc(100% - 3rem);
   max-height: calc(100% - 3rem);
   overflow-y: scroll;
+
+  animation: grow-in ease-out .1s;
 }
 .right-side {
   display: flex;

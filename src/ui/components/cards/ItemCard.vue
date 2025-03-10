@@ -88,7 +88,7 @@ function leanTowardsMouse(e) {
   background: #322929;
 }
 .perspective-box {
-  perspective: 250px;
+  perspective: 500px;
 }
 .item-card-wrapper {
   display: flex;
