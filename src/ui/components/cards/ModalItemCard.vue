@@ -52,7 +52,7 @@ defineProps({
                 Dis sum good shit. Need More
                 Dis sum good shit. Need More
                 Dis sum good shit. Need More
-                Dis sum good shit. Need MoreDis sum good shit. Need More
+<!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
 <!--                Dis sum good shit. Need More-->
 <!--                Dis sum good shit. Need MoreDis sum good shit. Need More-->
 <!--                Dis sum good shit. Need More-->
@@ -154,22 +154,26 @@ defineProps({
   font-family: Ebrima;
   font-weight: bold;
 
-  width: 80%;
+  aspect-ratio: 20/9;
+
   height: 80%;
+
   max-width: calc(100% - 3rem);
   max-height: calc(100% - 3rem);
-  overflow-y: scroll;
+  overflow-y: hidden;
 
   animation: grow-in ease-out .1s;
 }
 .right-side {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   background: linear-gradient(150deg, #3b3c43 , #313137);
 }
 .image-div {
-  width: 50%;
+  aspect-ratio: 5/8;
+
 }
 .image-div > img {
   height: 100%;
