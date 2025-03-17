@@ -35,105 +35,6 @@ defineProps({
     <div class="add">Add</div>
     <div class="available">Available</div>
     <div class="assigned">Assigned</div>
-
-
-
-
-
-
-
-
-
-<!--    <div class="image-div">-->
-<!--      <img src="/src/ui/assets/images/honeyCombWall.jpg" alt="modal-image">-->
-<!--    </div>-->
-<!--    <hr class="modal-hr-vertical">-->
-<!--    <div class="right-side">-->
-<!--      <div class="top-row">-->
-<!--        <h1>NAme</h1>-->
-<!--        <button class="button">Settings</button>-->
-<!--        <button class="button" @click="onCloseClick">X</button>-->
-<!--      </div>-->
-<!--      <hr class="modal-hr-top-horizontal">-->
-<!--      <div class="bottom-row">-->
-
-<!--        <div class="assigned modal-column dimmed-window">-->
-<!--          <div class="sub-header">-->
-<!--            <h2>Assigned</h2>-->
-<!--            <button>Settings</button>-->
-<!--          </div>-->
-<!--          <hr class="modal-hr-horizontal">-->
-<!--          <div class="scrollable-y"></div>-->
-<!--        </div>-->
-
-<!--        <div class="available modal-column dimmed-window">-->
-<!--          <div class="sub-header">-->
-<!--            <h2>Available</h2>-->
-<!--            <button>Settings</button>-->
-<!--          </div>-->
-<!--          <hr class="modal-hr-horizontal">-->
-<!--          <div class="scrollable-y"></div>-->
-<!--        </div>-->
-
-<!--        <div class="third-column modal-column ">-->
-<!--          <div class="description dimmed-window">-->
-<!--            <div class="sub-header">-->
-<!--              <h2>Description</h2>-->
-<!--              <button>Settings</button>-->
-<!--            </div>-->
-<!--            <hr class="modal-hr-horizontal">-->
-<!--            <div class="scrollable-y">-->
-<!--              <p>-->
-<!--                Dis sum good shit. Need More-->
-<!--                Dis sum good shit. Need More-->
-<!--                Dis sum good shit. Need More-->
-<!--                Dis sum good shit. Need More-->
-<!--                Dis sum good shit. Need More-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need MoreDis sum good shit. Need More&ndash;&gt;-->
-<!--&lt;!&ndash;                Dis sum good shit. Need More&ndash;&gt;-->
-
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="add-item dimmed-window">-->
-<!--            add-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 </div>
 </template>
@@ -150,8 +51,8 @@ defineProps({
 .sub-header {
   display: flex;
 }
-.sub-header > h2 {
-  flex: auto;
+.sub-header > h2 {/*
+  //flex: auto;*/
 }
 .modal-hr-top-horizontal {
   border: none;
@@ -187,7 +88,7 @@ defineProps({
 .pop-up-card {
   display: grid;
   grid-template-columns: 1fr repeat(3, 23%);
-  grid-template-rows: 5rem 1fr 1fr;
+  grid-template-rows: 5rem calc(50% - 2rem) calc(50% - 3rem);
 
   border-radius: .7rem;
 
@@ -226,14 +127,19 @@ defineProps({
 
 }
 .description {
+  display: flex;
+  flex-direction: column;
   grid-area: 2 / 4 / 3 / 5;
+  overflow: hidden;
 }
 .description > .paragraph-div {
   overflow-y: scroll;
+  overflow-x: hidden;
+  flex: 1;
 
 }
 .description > .paragraph-div > p {
-
+  text-overflow: ellipsis;
 }
 .add {
   grid-area: 3 / 4 / 4 / 5;
@@ -245,65 +151,18 @@ defineProps({
 .assigned {
   grid-area: 2 / 2 / 4 / 3;
 }
-/*
-
-.right-side {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  background: linear-gradient(150deg, #3b3c43 , #313137);
-}
-
-.button {
-  aspect-ratio: 1/1;
-  height: 100%;
-}
-.top-row {
-  display: flex;
-  height: 8rem;
-}
-.bottom-row {
-  display: flex;
-  flex: auto;
-  gap: 1rem;
-  margin: 0 1rem 1rem 1rem;
-}
-.modal-column {
-  width: 100%;
-}
-.dimmed-window {
-  border-radius: .5rem;
-  backdrop-filter: brightness(60%);
-}
-.third-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.description {
-  display: flex;
-  flex-direction: column;
-  max-height: 50%;
-}
-.add-item {
-  flex-basis: 30%;
-}
 
 /* text css */
 .top-row > h1 {
   margin: 0 0 0 1rem;
   font-size: 3rem;
-}
-.pop-up-card  h1, h2 {
-  flex: auto;
-  align-self: center;
   color: azure;
 }
-.pop-up-card h2 {
-  margin: .5rem 0 .5rem 1rem;
-  font-size: 1.5rem;
+.pop-up-card > h1, h2 {
+  margin: 0 0 1rem 1rem;
+  color: azure;
 }
+
 .pop-up-card p {
   margin: 1rem 0 0 1rem;
   color: #bfbd9b;

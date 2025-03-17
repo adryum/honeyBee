@@ -67,11 +67,13 @@ function setDrawerView(viewNumber) {
                 :currentView="currentView"
                 :viewChoices="viewChoices"
     />
+<!--    Drawer window. Might combine with header    -->
     <transition name="bounce">
       <div v-if="isHiveLayerSelected" class="layer-container">
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
+
   </main>
 </template>
 
