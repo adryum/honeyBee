@@ -8,13 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="" method="post">
+        <h1>Pieraksties!</h1>
+        <p>e-pasts</p> <input type='email' placeholder='...' name='email'>
+        <p>password</p> <input type='password' placeholder='...' name='password'>
+        <button type='submit' onclick=''><a href="secondPage.php">Submit</a></button>
+    </form>
 <?php
-echo "<h1>Pieraksties!</h1>";
-echo "<p>e-pasts</p> <input type='email' placeholder='...'>";
-echo "<p>password</p> <input type='password' placeholder='...'>";
-echo "<button onclick='' />"
-
-$_SESSION['e-mail'] =
+session_start();
+if (isset($_POST["email"]) && isset($_POST['password'])) {
+    $_SESSION['email'] = $_POST["email"];
+    $_SESSION['password'] = $_POST['password'];
+}
 ?>
 </body>
 </html>
