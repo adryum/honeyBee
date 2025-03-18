@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import ExpandedItemCard from "@/ui/components/cards/ExpandedItemCard.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import { RouterView } from 'vue-router'
 <!--  <RouterLink to="/about">About</RouterLink>-->
 
 <!--  Composable that makes link buttons work-->
+  <ExpandedItemCard/>
   <RouterView />
 </template>
 
