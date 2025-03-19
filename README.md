@@ -19,8 +19,6 @@ Kas ir izdarīts:
 - Izveidots Login, Sign in un gandrīzs Home View.
 - Izveidoti vairāki atsevišķi komponenti, kurus es izmantoju savām iepriekšējām idejām, kā arī daži priekš šīs idejas.
 
-Esmu TrueHomeView komponentā pievienojis header ar RouterLinkiem uz katru izveidoto skatu 'View'. Tas ir dzeltenā krāsā augšā :)
-
 Ideja:
 Datubāzes sistēma priekš biškopības, kura atvieglos biškopja ikdienas darbu ar datiem.
 
