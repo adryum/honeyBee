@@ -26,9 +26,4 @@ export const BackgroundType = Object.freeze({
   DimmedAndBlurred: 3
 });
 
-export const DeskView = Object.freeze({
-  Home: 0,
-  Apiaries: 1,
-  Inventory: 2,
-  Finances: 3
-});
+

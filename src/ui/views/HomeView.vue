@@ -1,36 +1,66 @@
 <script setup>
 import {ref, shallowRef} from "vue";
-import {DeskView} from "@/main.js";
 import HomeHeader from "@/ui/components/navigation/HomeHeader.vue";
 import ApiaryList from "@/ui/components/ApiaryList.vue";
 import InventoryItemList from "@/ui/components/InventoryItemList.vue";
 import FinanceComponent from "@/ui/components/FinanceComponent.vue";
 import SideHeader from "@/ui/components/navigation/SideHeader.vue";
 
-const viewChoices = [
+const TabNumber = Object.freeze({
+  Home : 0,
+  Apiaries : 1,
+  Inventory : 2,
+  Finances : 3,
+  About : 4,
+  Contact : 5,
+  Settings : 6
+});
+
+const tabs = [
   {
-    "text": "Apiaries",
-    "view": DeskView.Apiaries,
+    "name" : "Home",
+    "tabNumber" : TabNumber.Home,
+    "iconClass" : "fa-solid fa-house"
   },
   {
-    "text": "Inventory",
-    "view": DeskView.Inventory,
+    "name" : "Apiaries",
+    "tabNumber" : TabNumber.Apiaries,
+    "iconClass" : "fa-brands fa-hive"
   },
   {
-    "text": "Finances",
-    "view": DeskView.Finances,
+    "name" : "Inventory",
+    "tabNumber" : TabNumber.Inventory,
+    "iconClass" : "fa-solid fa-warehouse"
+  },
+  {
+    "name": "Finances",
+    "tabNumber": TabNumber.Finances,
+    "iconClass": "fa-solid fa-chart-simple"
+  },
+  {
+    "name": "About",
+    "tabNumber" : TabNumber.About
+  },
+  {
+    "name" : "Contact",
+    "tabNumber" : TabNumber.Contact
+  },
+  {
+    "name" : "Settings",
+    "tabNumber" : TabNumber.Settings
   },
 ]
 
 const isTabSelected = ref(false)
-const currentView = ref(DeskView.Home)
+const currentView = ref(TabNumber.Home)
 const currentTab = shallowRef(InventoryItemList)
+const isSidebarExtended = ref(true)
 
 function setComponent(view) {
   switch (view) {
-    case DeskView.Apiaries: currentTab.value = ApiaryList;  break;
-    case DeskView.Inventory: currentTab.value = InventoryItemList;  break;
-    case DeskView.Finances: currentTab.value = FinanceComponent;  break;
+    case TabNumber.Apiaries: currentTab.value = ApiaryList;  break;
+    case TabNumber.Inventory: currentTab.value = InventoryItemList;  break;
+    case TabNumber.Finances: currentTab.value = FinanceComponent;  break;
   }
 }
 
@@ -51,7 +81,7 @@ function setDrawerView(viewNumber) {
     setTimeout(() => {
       setComponent(viewNumber)
         // Makes sure that tab doesn't get opened when home view is shown
-        if (currentView.value !== DeskView.Home) {
+        if (currentView.value !== TabNumber.Home) {
           setIsTabSelected(true)
         }
     }, 100);
@@ -64,14 +94,23 @@ function setDrawerView(viewNumber) {
 <template>
   <main class="main-grid">
     <transition name="bounce">
-      <div v-if="isTabSelected" class="layer-container">
+      <div v-if="isTabSelected" class="layer-container"
+           :class="(isSidebarExtended) ? 'layer-container-sidebar-on' : 'layer-container-sidebar-off'"
+      >
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
-    <HomeHeader class="header"/>
+    <HomeHeader class="header"
+                :tabs="tabs"
+                :selectedTab="currentView"
+    />
     <SideHeader class="sidebar"
                 @onClick="(viewNumber) => setDrawerView(viewNumber)"
-                :selectedTab="currentView"/>
+                :topTabs="tabs.slice(0,4)"
+                :bottomTabs="tabs.slice(4, tabs.length)"
+                :selectedTab="currentView"
+                :isSidebarExtended="isSidebarExtended" @onSidebarToggle="(val) => isSidebarExtended = val"
+    />
 
 <!--    <HomeHeader @onClick="(viewNumber) => setDrawerView(viewNumber)"-->
 <!--                :currentView="currentView"-->
@@ -90,10 +129,12 @@ function setDrawerView(viewNumber) {
 .sidebar {
   grid-row: 1 / 3;
   grid-column: 1 / 2;
+  z-index: 3;
 }
 .header {
   grid-row: 1 / 2;
   grid-column: 1 / 3;
+  z-index: 2;
 }
 .bounce-enter-active {
   transition: .3s ease-in-out;
@@ -124,9 +165,17 @@ function setDrawerView(viewNumber) {
     transform: translateY(-100%);
   }
 }
-.layer-container {
+.layer-container-sidebar-off {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+.layer-container-sidebar-on {
   grid-column: 2/3;
   grid-row: 2 /3;
+}
+.layer-container {
+  z-index: 1;
+
   position: relative;
   display: flex;
   flex: auto;
@@ -135,7 +184,7 @@ function setDrawerView(viewNumber) {
   gap: 5rem;
   justify-content: center;
 
-  background: #ffd7b1;
+  background: #9a7f5b;
   flex-wrap: wrap;
   overflow-y: scroll;
 }

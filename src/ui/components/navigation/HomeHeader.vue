@@ -1,11 +1,7 @@
 <script setup>
 defineProps({
-  viewChoices: Object,
-  // { viewChoice
-  // "text": "Apiaries",
-  // "view": DeskView.Apiaries,
-  // },
-  currentView: Number
+  tabChoices: Object,
+  selectedTab: Number,
 })
 
 const emits = defineEmits(['onClick'])
@@ -17,23 +13,15 @@ function choseView(viewNumber) {
 
 <template>
   <div class="container">
-    <button>+</button>
-    <button>X</button>
+    <div class="display-flex-row" v-if="selectedTab === 1">
+      <button>+</button>
+      <button>X</button>
+    </div>
+    <div class="display-flex-row" v-if="selectedTab === 0">
+      <button><i class="fa-solid fa-right-to-bracket"></i></button>
+    </div>
+    <button><i class="fa-solid fa-moon"></i></button>
   </div>
-<!--<div class="header-container">-->
-<!--  <div class="top-header-part">-->
-
-<!--  </div>-->
-
-<!--  <div class="bottom-header-part">-->
-<!--    <button v-for="(choice, i) in viewChoices" :key="i"-->
-<!--            @click="choseView(choice.view)"-->
-<!--            :class="{'selected': (currentView === choice.view)}"-->
-<!--            class="choice">-->
-<!--      {{ choice.text }}-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
 </template>
 
 <style scoped>
@@ -42,13 +30,16 @@ function choseView(viewNumber) {
   justify-content: flex-end;
   width: 100%;
   height: 5rem;
-  background: orange;
+  background: linear-gradient(90deg, orange, #ff8c0b);
 }
 button {
   font-size: 40px;
   aspect-ratio: 1/1;
   background: transparent;
   backdrop-filter: brightness(80%);
+}
+.chooser {
+  display: flex;
 }
 h1 {
   display: flex;
