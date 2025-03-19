@@ -16,23 +16,47 @@ function choseView(viewNumber) {
 </script>
 
 <template>
-<div class="header-container">
-  <div class="top-header-part">
-
+  <div class="container">
+    <button>+</button>
+    <button>X</button>
   </div>
+<!--<div class="header-container">-->
+<!--  <div class="top-header-part">-->
 
-  <div class="bottom-header-part">
-    <button v-for="(choice, i) in viewChoices" :key="i"
-            @click="choseView(choice.view)"
-            :class="{'selected': (currentView === choice.view)}"
-            class="choice">
-      {{ choice.text }}
-    </button>
-  </div>
-</div>
+<!--  </div>-->
+
+<!--  <div class="bottom-header-part">-->
+<!--    <button v-for="(choice, i) in viewChoices" :key="i"-->
+<!--            @click="choseView(choice.view)"-->
+<!--            :class="{'selected': (currentView === choice.view)}"-->
+<!--            class="choice">-->
+<!--      {{ choice.text }}-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 5rem;
+  background: orange;
+}
+button {
+  font-size: 40px;
+  aspect-ratio: 1/1;
+  background: transparent;
+  backdrop-filter: brightness(80%);
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin: 0 auto 0 21rem;
+}
 .header-container {
   position: absolute;
   display: flex;

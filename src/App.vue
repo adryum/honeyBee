@@ -10,7 +10,7 @@ import ExpandedItemCard from "@/ui/components/cards/ExpandedItemCard.vue";
 <!--  <RouterLink to="/about">About</RouterLink>-->
 
 <!--  Composable that makes link buttons work-->
-  <ExpandedItemCard/>
+<!--  <ExpandedItemCard/>-->
   <RouterView />
 </template>
 

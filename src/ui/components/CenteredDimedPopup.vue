@@ -4,6 +4,9 @@
 
 <template>
   <div class="modal-container">
+    <slot>
+
+    </slot>
   </div>
 </template>
 

@@ -27,8 +27,8 @@ export const BackgroundType = Object.freeze({
 });
 
 export const DeskView = Object.freeze({
-  Home: 1,
-  Apiaries: 2,
-  Inventory: 3,
-  Finances: 4
+  Home: 0,
+  Apiaries: 1,
+  Inventory: 2,
+  Finances: 3
 });
