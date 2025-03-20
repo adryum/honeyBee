@@ -27,3 +27,12 @@ export const BackgroundType = Object.freeze({
 });
 
 
+export const TabNumber = Object.freeze({
+  Home : 0,
+  Apiaries : 1,
+  Inventory : 2,
+  Finances : 3,
+  About : 4,
+  Contact : 5,
+  Settings : 6
+});

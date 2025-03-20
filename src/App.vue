@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import ExpandedItemCard from "@/ui/components/cards/ExpandedItemCard.vue";
+import NewItemForm from "@/ui/components/NewItemForm.vue";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import SignUpWidget from "@/ui/components/SignUpWidget.vue";
+import SignUpWidget from "@/ui/components/registration/SignUpWidget.vue";
 import BackgroundWidget from "@/ui/components/BackgroundWidget.vue";
 import {BackgroundType} from "@/main.js";
 </script>

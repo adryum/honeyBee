@@ -5,16 +5,10 @@ import ApiaryList from "@/ui/components/ApiaryList.vue";
 import InventoryItemList from "@/ui/components/InventoryItemList.vue";
 import FinanceComponent from "@/ui/components/FinanceComponent.vue";
 import SideHeader from "@/ui/components/navigation/SideHeader.vue";
+import NewItemForm from "@/ui/components/NewItemForm.vue";
+import {TabNumber} from "@/main.js";
 
-const TabNumber = Object.freeze({
-  Home : 0,
-  Apiaries : 1,
-  Inventory : 2,
-  Finances : 3,
-  About : 4,
-  Contact : 5,
-  Settings : 6
-});
+
 
 const tabs = [
   {
@@ -52,7 +46,7 @@ const tabs = [
 ]
 
 const isTabSelected = ref(false)
-const currentView = ref(TabNumber.Home)
+const currentTabNumber = ref(TabNumber.Home)
 const currentTab = shallowRef(InventoryItemList)
 const isSidebarExtended = ref(true)
 
@@ -65,7 +59,7 @@ function setComponent(view) {
 }
 
 function giveCurrentProperties() {
-  if (currentTab.value === ApiaryList) return { apiaryList: [] }
+  if (currentTab.value === InventoryItemList) return { selectedProperties: [{"isCreatingItem" : isCreatingItem}] }
 
 }
 
@@ -75,48 +69,49 @@ function setIsTabSelected(value) {
 
 function setDrawerView(viewNumber) {
 
-  if (currentView.value !== viewNumber) {
+  if (currentTabNumber.value !== viewNumber) {
     setIsTabSelected(false)
 
     setTimeout(() => {
       setComponent(viewNumber)
         // Makes sure that tab doesn't get opened when home view is shown
-        if (currentView.value !== TabNumber.Home) {
+        if (currentTabNumber.value !== TabNumber.Home) {
           setIsTabSelected(true)
         }
     }, 100);
-    currentView.value = viewNumber
+    currentTabNumber.value = viewNumber
   }
 }
 
+
+const isCreatingItem = ref(false)
 </script>
 
 <template>
   <main class="main-grid">
     <transition name="bounce">
       <div v-if="isTabSelected" class="layer-container"
-           :class="(isSidebarExtended) ? 'layer-container-sidebar-on' : 'layer-container-sidebar-off'"
+           :class="(isSidebarExtended) ? 'center-content-sidebar-on' : 'center-content-sidebar-off'"
       >
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
     <HomeHeader class="header"
                 :tabs="tabs"
-                :selectedTab="currentView"
+                :selectedTab="currentTabNumber"
+                @onCreateItem="isCreatingItem = true"
     />
     <SideHeader class="sidebar"
                 @onClick="(viewNumber) => setDrawerView(viewNumber)"
                 :topTabs="tabs.slice(0,4)"
                 :bottomTabs="tabs.slice(4, tabs.length)"
-                :selectedTab="currentView"
+                :selectedTab="currentTabNumber"
                 :isSidebarExtended="isSidebarExtended" @onSidebarToggle="(val) => isSidebarExtended = val"
     />
-
-<!--    <HomeHeader @onClick="(viewNumber) => setDrawerView(viewNumber)"-->
-<!--                :currentView="currentView"-->
-<!--                :viewChoices="viewChoices"-->
-<!--    />-->
-<!--&lt;!&ndash;    Drawer window. Might combine with header    &ndash;&gt;-->
+<!--    Pop-ups   -->
+    <NewItemForm v-if="isCreatingItem && currentTabNumber === TabNumber.Inventory"
+                 @onCloseClick="isCreatingItem = false"
+                 :class="(isSidebarExtended) ? 'center-content-sidebar-on' : 'center-content-sidebar-off'"/>
   </main>
 </template>
 
@@ -165,17 +160,15 @@ function setDrawerView(viewNumber) {
     transform: translateY(-100%);
   }
 }
-.layer-container-sidebar-off {
+.center-content-sidebar-off {
   grid-column: 1/3;
   grid-row: 2/3;
 }
-.layer-container-sidebar-on {
+.center-content-sidebar-on {
   grid-column: 2/3;
   grid-row: 2 /3;
 }
 .layer-container {
-  z-index: 1;
-
   position: relative;
   display: flex;
   flex: auto;

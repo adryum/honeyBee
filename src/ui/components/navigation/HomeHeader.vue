@@ -1,24 +1,22 @@
 <script setup>
+import {TabNumber} from "@/main.js";
+
 defineProps({
   tabChoices: Object,
   selectedTab: Number,
 })
 
-const emits = defineEmits(['onClick'])
-function choseView(viewNumber) {
-  emits('onClick', viewNumber)
-}
-
+const emits = defineEmits(['onCreateItem'])
 </script>
 
 <template>
   <div class="container">
-    <div class="display-flex-row" v-if="selectedTab === 1">
-      <button>+</button>
+    <div class="display-flex-row" v-if="selectedTab === TabNumber.Inventory">
+      <button @click="emits('onCreateItem')">+</button>
       <button>X</button>
     </div>
-    <div class="display-flex-row" v-if="selectedTab === 0">
-      <button><i class="fa-solid fa-right-to-bracket"></i></button>
+    <div class="display-flex-row" v-if="selectedTab === TabNumber.Home">
+      <button @click="$router.push('login')" ><i class="fa-solid fa-right-to-bracket"></i></button>
     </div>
     <button><i class="fa-solid fa-moon"></i></button>
   </div>

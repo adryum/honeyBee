@@ -2,7 +2,8 @@
 import ItemCard from "@/ui/components/cards/ItemCard.vue";
 
 defineProps({
-  apiaryList: Array
+  apiaryList: Array,
+  selectedProperties: Array
 })
 </script>
 

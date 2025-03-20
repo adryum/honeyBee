@@ -1,14 +1,14 @@
 <script setup>
 
-import CenteredDimedPopup from "@/ui/components/CenteredDimedPopup.vue";
+import CenteredDimmedPopup from "@/ui/components/utlis/CenteredDimmedPopup.vue";
 </script>
 
 <template>
-  <CenteredDimedPopup>
+  <CenteredDimmedPopup>
     <div class="container">
 frdrterty
     </div>
-  </CenteredDimedPopup>
+  </CenteredDimmedPopup>
 </template>
 
 <style scoped>

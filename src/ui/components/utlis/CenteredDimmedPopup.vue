@@ -12,13 +12,13 @@
 
 <style scoped>
 .modal-container {
-  position: fixed;
+
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* puts modal below header */
-  height: calc(100% - var(--header-height));
+  height: 100%;
+
   bottom: 0;
   backdrop-filter: brightness(20%) blur(4px);
 
