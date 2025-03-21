@@ -1,6 +1,6 @@
 <script setup>
 
-import UserLobbyCard from "@/ui/components/lobby/UserLobbyCard.vue";
+import UserLobbyCard from "@/ui/components/game/lobby/UserLobbyCard.vue";
 </script>
 
 <template>

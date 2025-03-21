@@ -1,8 +1,8 @@
 <script setup>
 import {ref, shallowRef} from "vue";
 import HomeHeader from "@/ui/components/navigation/HomeHeader.vue";
-import ApiaryList from "@/ui/components/ApiaryList.vue";
-import InventoryItemList from "@/ui/components/InventoryItemList.vue";
+import ApiaryList from "@/ui/components/lists/ApiaryList.vue";
+import InventoryItemList from "@/ui/components/lists/InventoryItemList.vue";
 import FinanceComponent from "@/ui/components/FinanceComponent.vue";
 import SideHeader from "@/ui/components/navigation/SideHeader.vue";
 import NewItemForm from "@/ui/components/NewItemForm.vue";
@@ -90,9 +90,9 @@ const isCreatingItem = ref(false)
 <template>
   <main class="main-grid">
     <transition name="bounce">
-      <div v-if="isTabSelected" class="layer-container"
-           :class="(isSidebarExtended) ? 'center-content-sidebar-on' : 'center-content-sidebar-off'"
-      >
+      <div v-if="isTabSelected" class="opened-tab-box"
+           :class="(isSidebarExtended) ? 'center-content-sidebar-on' : 'center-content-sidebar-off'">
+<!--        Inside shows selected component     -->
         <component :is="currentTab" v-bind="giveCurrentProperties" class="flex-1"/>
       </div>
     </transition>
@@ -168,18 +168,18 @@ const isCreatingItem = ref(false)
   grid-column: 2/3;
   grid-row: 2 /3;
 }
-.layer-container {
+.opened-tab-box {
   position: relative;
   display: flex;
   flex: auto;
-
-  padding: 3rem 10px 10px 10px;
-  gap: 5rem;
-  justify-content: center;
-
-  background: #9a7f5b;
-  flex-wrap: wrap;
+/*
+    padding: 3rem 10px 10px 10px;
+    gap: 5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+*/
   overflow-y: scroll;
+  background: #9a7f5b;
 }
 
 main {

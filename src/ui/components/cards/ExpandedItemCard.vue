@@ -16,6 +16,5 @@ frdrterty
   width: 80%;
   height: 50%;
   background: #7a7a7a;
-
 }
 </style>

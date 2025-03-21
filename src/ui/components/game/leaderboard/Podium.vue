@@ -1,5 +1,5 @@
 <script setup>
-import PodiumColumn from "@/ui/components/leaderboard/PodiumColumn.vue";
+import PodiumColumn from "@/ui/components/game/leaderboard/PodiumColumn.vue";
 import {PodiumPlace} from "@/main.js";
 
 defineProps({

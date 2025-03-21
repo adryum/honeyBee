@@ -93,14 +93,17 @@ function leanTowardsMouse(e) {
 .item-card-wrapper {
   display: flex;
   flex-direction: column;
+  /*
   width: 25rem;
   height: 30rem;
+  */
+
+  height: 100%;
+  width: 100%;
+
   font-family: Ebrima;
 
   transition: .1s;
-}
-.item-card-wrapper:hover {
-  scale: 1.08;
 }
 .image-div {
   height: 60%;

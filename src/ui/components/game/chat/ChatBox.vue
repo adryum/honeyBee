@@ -1,5 +1,5 @@
 <script setup>
-import MessageList from "@/ui/components/chat/MessageList.vue";
+import MessageList from "@/ui/components/game/chat/MessageList.vue";
 import {JsonToArr} from "@/main.js";
 import {ref} from "vue";
 import DropdownToggleButton from "@/ui/components/buttons/DropdownToggleButton.vue";

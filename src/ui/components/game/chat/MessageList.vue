@@ -1,5 +1,5 @@
 <script setup>
-import UserMessage from "@/ui/components/chat/UserMessage.vue";
+import UserMessage from "@/ui/components/game/chat/UserMessage.vue";
 
 defineProps({
   messages: Array,

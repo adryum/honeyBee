@@ -1,7 +1,7 @@
 <script setup>
-import MessageList from "@/ui/components/chat/MessageList.vue";
+import MessageList from "@/ui/components/game/chat/MessageList.vue";
 
-import Podium from "@/ui/components/leaderboard/Podium.vue";
+import Podium from "@/ui/components/game/leaderboard/Podium.vue";
 import DropdownToggleButton from "@/ui/components/buttons/DropdownToggleButton.vue";
 import {ref} from "vue";
 import {leaderboardDataArrayToUserMessageModelArray} from "@/core/models/UserMessageModel.js";

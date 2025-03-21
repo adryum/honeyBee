@@ -3,10 +3,10 @@ import TextButton from "@/ui/components/buttons/TextButton.vue";
 import ProfileWidget from "@/ui/components/ProfileWidget.vue";
 import ChatMessages from "/tests/mock-data/ChatMessages.json"
 import LeaderBoardData from "/tests/mock-data/LeaderBoardData.json"
-import ChatBox from "@/ui/components/chat/ChatBox.vue";
-import LeaderBoard from "@/ui/components/leaderboard/LeaderBoard.vue";
+import ChatBox from "@/ui/components/game/chat/ChatBox.vue";
+import LeaderBoard from "@/ui/components/game/leaderboard/LeaderBoard.vue";
 import {JsonToArr} from "@/main.js";
-import UserLobbyCardContainer from "@/ui/components/lobby/UserLobbyCardContainer.vue";
+import UserLobbyCardContainer from "@/ui/components/game/lobby/UserLobbyCardContainer.vue";
 </script>
 
 <template>
